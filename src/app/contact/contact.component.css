@@ -1,0 +1,100 @@
+.contact-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .title {
+    text-align: center; /* توسيط العنوان */
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 28px;
+    color: #000000;
+    margin-bottom: 50PX;
+  }
+  
+  .content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .contact-form {
+    flex: 1;
+    max-width: 55%;
+  }
+  
+  .con-info-title {
+    color: #000000c2;
+    font-weight: bold;
+  }
+  
+  .contact-info {
+    flex: 1;
+    max-width: 40%;
+    padding-left: 20px;
+    border-left: 2px solid #f4b567;
+    margin-top: 35px;
+  }
+  
+  .form-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 3px;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  textarea {
+    height: 150px;
+  }
+  
+  button {
+    background-color: #f4b567;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #e89e4d;
+  }
+  
+  strong {
+    color: #000000a1;
+  }
+  
+  /* ✅ جعل التصميم متجاوب للشاشات الصغيرة */
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column; /* تحويل العناصر إلى عمود واحد */
+      align-items: center; /* توسيط العناصر */
+    }
+  
+    .contact-form, .contact-info {
+      max-width: 100%; /* جعل العناصر تأخذ العرض الكامل */
+      padding-left: 0;
+      border-left: none; /* إزالة الخط الفاصل بين القسمين */
+    }
+  
+    .form-group {
+      flex-direction: column; /* جعل المدخلات تحت بعضها */
+    }
+    p{
+        font-size: 16px !important;
+    }
+  }
+  

@@ -25,9 +25,31 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css",
+              "src/assets/HomeDesign/css/bootstrap.min.css",
+              "src/assets/HomeDesign/css/animate.css",
+              "src/assets/HomeDesign/css/themify-icons.css",
+              "src/assets/HomeDesign/css/magnific-popup.css",
+              "src/assets/HomeDesign/css/slick.css",
+              "src/assets/HomeDesign/css/style.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/HomeDesign/js/jquery-1.12.1.min.js",
+              "src/assets/HomeDesign/js/popper.min.js",
+              "src/assets/HomeDesign/js/bootstrap.min.js",
+              "src/assets/HomeDesign/js/jquery.magnific-popup.js",
+              "src/assets/HomeDesign/js/swiper.min.js",
+              "src/assets/HomeDesign/js/masonry.pkgd.js",
+              "src/assets/HomeDesign/js/owl.carousel.min.js",
+              "src/assets/HomeDesign/js/jquery.nice-select.min.js",
+              "src/assets/HomeDesign/js/slick.min.js",
+              "src/assets/HomeDesign/js/jquery.counterup.min.js",
+              "src/assets/HomeDesign/js/waypoints.min.js",
+              "src/assets/HomeDesign/js/custom.js"
+              
+
+            ]
           },
           "configurations": {
             "production": {
@@ -87,9 +109,14 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+          
+
+
+            ]
           }
         }
       }
