@@ -1,0 +1,23 @@
+.trip-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-radius: 15px;
+    background: #fff; /* Clean White Background */
+    padding: 20px;
+    cursor: pointer;
+}
+
+.trip-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Centering Radio Button Below the Content */
+.trip-radio {
+    margin-top: 15px;
+}
+
+/* Selected Card Highlight */
+.trip-card.selected {
+    border: 3px solid #1161ee; /* Highlight color */
+    box-shadow: 0 8px 25px rgba(17, 97, 238, 0.3);
+}
