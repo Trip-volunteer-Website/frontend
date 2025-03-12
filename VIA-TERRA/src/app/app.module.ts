@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { TestimonialsFormComponent } from './testimonials-form/testimonials-form.component';
 import { TripRequestComponent } from './trip-request/trip-request.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TripRequestComponent } from './trip-request/trip-request.component';
     HomeComponent,
     TestimonialsComponent,
     TestimonialsFormComponent,
-    TripRequestComponent
+    TripRequestComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

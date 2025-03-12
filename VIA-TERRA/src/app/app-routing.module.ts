@@ -6,7 +6,7 @@ import { ContactComponent } from './contact/contact.component';
 import { AuthModule } from './auth/auth.module';
 import { TestimonialsFormComponent } from './testimonials-form/testimonials-form.component';
 import { TripRequestComponent } from './trip-request/trip-request.component';
-
+import { ProfileComponent } from './profile/profile.component';
 const routes: Routes = [
 {
   path:"home",
@@ -33,7 +33,11 @@ const routes: Routes = [
   path: 'submit-testimonial',
   component: TestimonialsFormComponent
 },
-{ path: 'trip-request', component: TripRequestComponent},
+{ path: 'trip-request', component: TripRequestComponent}
+, {
+  path:'profile',
+  component:ProfileComponent
+}
 ];
 
 @NgModule({
