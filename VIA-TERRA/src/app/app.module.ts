@@ -10,9 +10,10 @@ import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { TestimonialsFormComponent } from './testimonials-form/testimonials-form.component';
-import { TripRequestComponent } from './trip-request/trip-request.component';
-import { ProfileComponent } from './profile/profile.component';
-
+import { TripRequestComponent } from './trip-request/trip-request.component'; import { ProfileComponent } from './profile/profile.component';
+// import { UserService } from './services/user.service';
+// import { TestimonialService } from './services/testimonial.service';
+//C:\Users\Sundos\Desktop\FinalFront\frontend\VIA-TERRA\src\app\testimonials
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { ProfileComponent } from './profile/profile.component';
     FormsModule
   ],
   providers: [],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
