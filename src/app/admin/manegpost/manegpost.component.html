@@ -1,0 +1,112 @@
+
+<!-- <app-sidebar></app-sidebar> -->
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="text-primary">post Information</h3>
+        <button class="btn btn-success shadow-sm fw-bold d-flex align-items-center px-3" (click)="createNew()">
+            <i class="ti ti-plus me-2"></i> Create New
+        </button>
+    </div>
+
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+            <h3>post Information</h3>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover text-center">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>image</th>
+                            <th>title</th>
+                            <th>content</th>
+                            <th>createdat</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let post of post.postArr">
+                            <td>{{ post.postid }}</td>
+                            <td> <img src="../../../assets/images/{{post.imagepath}}" width="100px" style="border-radius: 20px;" /></td>   
+                            <td>{{ post.title }}</td>
+                            <td>{{ post.content }}</td>
+                            <td>{{ post.createdat }}</td>
+                        
+                            
+                            <td>
+                                <button class="btn btn-sm btn-primary me-2"(click)="openUpdateDialog(post)" >
+                                    <i class="ti ti-pencil"></i> Update
+                                </button>
+                                <button mat-button class="btn btn-sm btn-danger" (click)="openDialog(post.postid)">
+                                    <i class="ti ti-trash"></i> Delete
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #callDelDialog>
+    <div mat-dialog-content>Are You Sure To Delete This Item!!</div>
+    <div mat-dialog-actions>
+        <button mat-button mat-dialog-close="yes">OK</button>
+        <button mat-button mat-dialog-close="no">Cancel</button>
+    </div>
+</ng-template>
+
+
+
+
+
+
+<ng-template #callUpdateDialog>
+
+    <form class="pot-form" [formGroup]="updateForm">
+        <h2>Update post Form</h2>
+        
+        <div class="form-group">
+            <label for="img">Upload Image:</label>
+            <input type="file" #file name="img" (change)="uploadImage(file.files)" class="form-control" formControlName="imagepath">
+            <small *ngIf="pData.imagepath" class="text-muted d-block mt-2">
+                <img [src]="'../../../assets/images/' + pData.imagepath" width="100" class="ms-2 rounded">
+              </small>
+          </div>
+
+
+
+
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" class="form-control" formControlName="title" [(ngModel)]="pData.title">
+        
+        </div>
+        
+      
+        
+        <div class="form-group">
+          <label for="content">Content:</label>
+          <textarea id="content" name="content" class="form-control" formControlName="content"[(ngModel)]="pData.content"></textarea>
+         
+        </div>
+
+        <div class="form-group">
+            <label for="title">create date:</label>
+            <input type="date" id="createdat" name="createdat" class="form-control" formControlName="createdat" [(ngModel)]="pData.createdat">
+          
+          </div>
+          
+        
+        <!-- أزرار الإرسال والإلغاء بجانب بعض -->
+        <div class="d-flex gap-2 mt-3">
+          <button class="btn btn-primary" [disabled]="updateForm.invalid" (click)="Update()">Update</button>
+          <button type="button" class="btn btn-outline-danger" >Cancel</button>
+        </div>
+    </form>
+  
+  
+ 
+</ng-template>

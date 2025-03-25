@@ -1,3 +1,11 @@
-<p>login works!  {{home.message}}</p>
+<!-- <p>login works!  {{home.message}}</p> -->
 <button mat-button color="primary" (click)="login
 ()">save info </button>
+
+<div class="example-container">
+  <mat-form-field>
+    <mat-label>Enter your email</mat-label>
+    <input matInput placeholder="pat@example.com" [formControl]="email" required>
+    <mat-error *ngIf="email.invalid"></mat-error>
+  </mat-form-field>
+</div>

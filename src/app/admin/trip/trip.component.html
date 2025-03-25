@@ -1,0 +1,191 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+      <h3 class="text-primary">Trip Information</h3>
+      <button class="btn btn-success shadow-sm fw-bold d-flex align-items-center px-3" (click)="createNew()">
+          <i class="ti ti-plus me-2"></i> Create New
+      </button>
+  </div>
+
+  <!-- Date Filter Section -->
+  <div class="card shadow-sm mb-4 border-0">
+      <div class="card-body bg-light">
+          <h5 class="card-title text-muted mb-3">
+              <i class="ti ti-calendar-filter me-2"></i>Filter by Date Range
+          </h5>
+          <div class="row g-3">
+              <div class="col-md-5">
+                  <label for="startDateFilter" class="form-label">From Date</label>
+                  <input type="date" class="form-control" id="startDateFilter" 
+                         [(ngModel)]="startDateFilter" (change)="filterTripsByDate()">
+              </div>
+              <div class="col-md-5">
+                  <label for="endDateFilter" class="form-label">To Date</label>
+                  <input type="date" class="form-control" id="endDateFilter" 
+                         [(ngModel)]="endDateFilter" (change)="filterTripsByDate()">
+              </div>
+              <div class="col-md-2 d-flex align-items-end">
+                  <button class="btn btn-outline-secondary w-100" (click)="clearDateFilters()">
+                      <i class="ti ti-x me-1"></i> Clear
+                  </button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Trip List Section -->
+  <div class="card shadow-lg">
+      <div class="card-header bg-primary text-white">
+          <div class="d-flex justify-content-between align-items-center">
+              <h3 class="mb-0">Trip Information</h3>
+              <span class="badge bg-light text-primary fs-6">
+                  Showing {{ filteredTrips.length }} of {{ trip.TripArr.length }} trips
+              </span>
+          </div>
+      </div>
+      <div class="card-body">
+          <div class="table-responsive">
+              <table class="table table-striped table-hover text-center">
+                  <thead class="table-dark">
+                      <tr>
+                          <th>Trip Name</th>
+                          <th>Description</th>
+                          <th>Start Date</th>
+                          <th>End Date</th>
+                          <th>Price</th>
+                          <th>Min Age</th>
+                          <th>Status</th>
+                          <th>Location</th>
+                          <th>Actions</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let trip of filteredTrips">
+                          <td class="fw-bold">{{ trip.tripname }}</td>
+                          <td class="text-truncate" style="max-width: 200px;" 
+                              [matTooltip]="trip.description" matTooltipPosition="above">
+                              {{ trip.description }}
+                          </td>
+                          <td>{{ trip.startdate | date:'mediumDate' }}</td>
+                          <td>{{ trip.enddate | date:'mediumDate' }}</td>
+                          <td>{{ trip.price | currency }}</td>
+                          <td>{{ trip.minage }}</td>
+                          <td>
+                              <span [ngClass]="{
+                                  'badge bg-success': trip.status === 'active',
+                                  'badge bg-warning text-dark': trip.status === 'pending',
+                                  'badge bg-secondary': trip.status === 'completed'
+                              }">
+                                  {{ trip.status | titlecase }}
+                              </span>
+                          </td>
+                          <td>{{ trip.location }}</td>
+                          <td>
+                              <div class="d-flex justify-content-center gap-2">
+                                  <button class="btn btn-sm btn-primary" (click)="openUpdateDialog(trip)">
+                                      <i class="ti ti-pencil"></i>
+                                  </button>
+                                  <button class="btn btn-sm btn-danger" (click)="openDialog(trip.tripid)">
+                                      <i class="ti ti-trash"></i>
+                                  </button>
+                              </div>
+                          </td>
+                      </tr>
+                      <tr *ngIf="filteredTrips.length === 0">
+                          <td colspan="9" class="py-4 text-muted">
+                              <i class="ti ti-info-circle me-2"></i>
+                              No trips found matching your criteria
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<ng-template #calltripDialog>
+  <div mat-dialog-content>Are You Sure To Delete This Item!!</div>
+  <div mat-dialog-actions>
+      <button mat-button mat-dialog-close="yes">OK</button>
+      <button mat-button mat-dialog-close="no">Cancel</button>
+  </div>
+</ng-template>
+
+<ng-template #callUpdateDialog>
+  <div class="custom-dialog-container">
+    <form class="trip-form" [formGroup]="updateForm">
+      <h2>Update Trip Form</h2>
+
+      <!-- Trip ID (Hidden field or pre-filled) -->
+      <div class="form-group">
+        <!-- <label for="tripid">Trip ID:</label> -->
+        <input type="hidden" id="tripid" name="tripid" class="form-control" formControlName="tripid" readonly>
+      </div>
+
+      <!-- Trip Name -->
+      <div class="form-group">
+        <label for="tripname">Trip Name:</label>
+        <input type="text" id="tripname" name="tripname" class="form-control" formControlName="tripname">
+      </div>
+
+      <!-- Start Date -->
+      <div class="form-group">
+        <label for="startdate">Start Date:</label>
+        <input type="date" id="startdate" name="startdate" class="form-control" formControlName="startdate">
+      </div>
+
+      <!-- End Date -->
+      <div class="form-group">
+        <label for="enddate">End Date:</label>
+        <input type="date" id="enddate" name="enddate" class="form-control" formControlName="enddate">
+      </div>
+
+      <!-- Price -->
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" class="form-control" formControlName="price">
+      </div>
+
+      <!-- Minimum Age -->
+      <div class="form-group">
+        <label for="minage">Minimum Age:</label>
+        <input type="number" id="minage" name="minage" class="form-control" formControlName="minage">
+      </div>
+
+      <!-- Description -->
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" class="form-control" formControlName="description"></textarea>
+      </div>
+
+      <!-- Max Volunteers -->
+      <div class="form-group">
+        <label for="maxvolunteers">Max Volunteers:</label>
+        <input type="number" id="maxvolunteers" name="maxvolunteers" class="form-control" formControlName="maxvolunteers">
+      </div>
+
+      <!-- Max Users -->
+      <div class="form-group">
+        <label for="maxusers">Max Users:</label>
+        <input type="number" id="maxusers" name="maxusers" class="form-control" formControlName="maxusers">
+      </div>
+
+      <!-- Status (Active or Inactive) -->
+      <div class="form-group">
+        <label for="status">Status:</label>
+        <select id="status" name="status" class="form-control" formControlName="status">
+          <option value="active">active</option>
+          <option value="pending">pending</option>
+          <option value="completed">completed</option>
+        </select>
+      </div>
+
+      <!-- Submit and Cancel buttons -->
+      <div class="d-flex gap-2 mt-3">
+        <button class="btn btn-primary" [disabled]="updateForm.invalid" (click)="Update()">Update</button>
+        <button type="button" class="btn btn-outline-danger" (click)="closeDialog()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</ng-template>

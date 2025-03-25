@@ -1,0 +1,64 @@
+
+<div >
+    <form class="about-form" [formGroup]="createForm">
+        <h2>Create New header and footer Form</h2>
+        
+        <div class="form-group">
+          <label for="email">email:</label>
+          <input type="email" id="email" name="email" class="form-control" formControlName="email">
+          
+          
+          <span class="text-danger" *ngIf="createForm.controls['email'].hasError('required')">
+            Email is required
+          </span>
+        
+          <span class="text-danger" *ngIf="createForm.controls['email'].hasError('email') && !createForm.controls['email'].hasError('required')">
+            Please enter a valid email address
+          </span>
+        </div>
+        
+        
+        <div class="form-group">
+          <label for="img">phonenumber:</label>
+          <input type="text"  name="phonenumber"  class="form-control" formControlName="phonenumber" >
+          <span class="text-danger" *ngIf="createForm.controls['phonenumber'].hasError('required')">
+            phonenumber is required
+          </span>
+        </div>
+        
+        <div class="form-group">
+          <label for="content">name:</label>
+          <input type="text" id="name" name="name" class="form-control" formControlName="name">
+          <span class="text-danger" *ngIf="createForm.controls['name'].hasError('required')">
+            name is required
+          </span>
+        </div>
+        
+        <div class="form-group">
+            <label for="content">logo:</label>
+            <input type="file" #file name="img" (change)="uploadImage(file.files)" class="form-control"  formControlName="logo" >
+            
+          </div>
+          <div class="form-group">
+            <label for="content">location:</label>
+            <textarea id="location" name="location" class="form-control" formControlName="location"></textarea>
+            <span class="text-danger" *ngIf="createForm.controls['location'].hasError('required')">
+                location is required
+            </span>
+          </div>
+          <div class="form-group">
+            <label for="content">content:</label>
+            <textarea id="content" name="content" class="form-control" formControlName="content"></textarea>
+            <span class="text-danger" *ngIf="createForm.controls['content'].hasError('required')">
+                content is required
+            </span>
+          </div>
+        <!-- أزرار الإرسال والإلغاء بجانب بعض -->
+        <div class="d-flex gap-2 mt-3">
+          <button class="btn btn-primary" [disabled]="createForm.invalid" (click)="create()">Save</button>
+          <button type="button" class="btn btn-outline-danger" >Cancel</button>
+        </div>
+    </form>
+  </div>
+  
+ 

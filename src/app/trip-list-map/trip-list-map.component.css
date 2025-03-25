@@ -1,0 +1,78 @@
+.leaflet-popup-content {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+  }
+  
+  .leaflet-popup-content h3 {
+    font-size: 16px;
+    color: #007bff;
+    margin-bottom: 5px;
+  }
+  
+  .leaflet-popup-content p {
+    margin: 3px 0;
+    font-size: 13px;
+  }
+  
+  .leaflet-popup-content button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .leaflet-popup-content button:hover {
+    background-color: #218838;
+  }
+
+  .leaflet-marker-icon {
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2)); /* إضافة ظل للأيقونة */
+    transition: transform 0.2s ease-in-out;
+    width: 25px;
+   
+  }
+  
+  .leaflet-marker-icon:hover {
+    transform: scale(1.1); /* تكبير الأيقونة عند التمرير عليها */
+  }
+  img.leaflet-marker-icon.leaflet-zoom-animated.leaflet-interactive {
+    width: 38px;
+    height: 47px;
+  }
+  .join-now-btn {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b) !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 20px !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    border-radius: 25px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease-in-out !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+  
+  
+  .join-now-btn:hover {
+    background: linear-gradient(135deg, #ff6a3d, #ff9a76);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .join-now-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  

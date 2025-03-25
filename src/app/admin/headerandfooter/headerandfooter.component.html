@@ -1,0 +1,118 @@
+<app-sidebar></app-sidebar>
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="text-primary">header and footer Information</h3>
+        <button class="btn btn-success shadow-sm fw-bold d-flex align-items-center px-3" (click)="createNew()">
+            <i class="ti ti-plus me-2"></i> Create New
+        </button>
+    </div>
+
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+            <h3>header and footer Information</h3>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover text-center">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>email</th>
+                            <th>phonenumber</th>
+                            <th>name</th>
+                            <th>logo</th>
+                            <th>location</th>
+                            <th>content</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let hf of headerfooter.headerandfooterarr">
+                            <td>{{ hf.id }}</td>
+                            <td>{{ hf.email }}</td>
+                            <td>{{ hf.phonenumber }}</td>
+                            <td>{{ hf.name }}</td>
+                            <td> <img src="../../../assets/images/{{hf.logo}}" width="100px" style="border-radius: 20px;" /></td>   
+                            <td>{{ hf.location }}</td>
+                            <td>{{ hf.content }}</td>
+                            <td>
+                                <button class="btn btn-sm btn-primary me-2" (click)="openUpdateDialog(hf)">
+                                    <i class="ti ti-pencil"></i> Update
+                                </button>
+                                <button mat-button class="btn btn-sm btn-danger"(click)="openDialog(hf.id)">
+                                    <i class="ti ti-trash"></i> Delete
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #callHFDialog>
+    <div mat-dialog-content>Are You Sure To Delete This Item!!</div>
+    <div mat-dialog-actions>
+        <button mat-button mat-dialog-close="yes">OK</button>
+        <button mat-button mat-dialog-close="no">Cancel</button>
+    </div>
+</ng-template>
+
+<ng-template #callUpdateDialog>
+
+    <form class="about-form" [formGroup]="updateForm">
+        <h2>Update  header and footer Form</h2>
+        
+        <div class="form-group">
+          <label for="title">email:</label>
+          <input type="email" id="email" name="email" class="form-control" formControlName="email" [(ngModel)]="pData.email">
+        
+        </div>
+
+        <div class="form-group">
+            <label for="title">phonenumber:</label>
+            <input type="text" id="phonenumber" name="phonenumber" class="form-control" formControlName="phonenumber" [(ngModel)]="pData.phonenumber">
+          
+          </div>
+
+          <div class="form-group">
+            <label for="title">name:</label>
+            <input type="text" id="name" name="name" class="form-control" formControlName="name" [(ngModel)]="pData.name">
+          
+          </div>
+
+        
+        
+        <div class="form-group">
+          <label for="img">logo:</label>
+          <input type="file" #file name="logo" (change)="uploadImage(file.files)" class="form-control" formControlName="logo" >
+          <small *ngIf="pData.logo" class="text-muted d-block mt-2">
+            <img [src]="'../../../assets/images/' + pData.logo" width="100" class="ms-2 rounded">
+          </small>
+          
+        </div>
+
+        <div class="form-group">
+            <label for="img">location:</label>
+            <input type="text"  name="location"  class="form-control" formControlName="location"[(ngModel)]="pData.location">
+            
+          </div>
+        
+        <div class="form-group">
+          <label for="content">Content:</label>
+          <textarea id="content" name="content" class="form-control" formControlName="content"[(ngModel)]="pData.content"></textarea>
+         
+        </div>
+        
+        <!-- أزرار الإرسال والإلغاء بجانب بعض -->
+        <div class="d-flex gap-2 mt-3">
+          <button class="btn btn-primary" [disabled]="updateForm.invalid" (click)="Update()">Update</button>
+          <button type="button" class="btn btn-outline-danger" >Cancel</button>
+        </div>
+    </form>
+  
+  
+ 
+</ng-template>

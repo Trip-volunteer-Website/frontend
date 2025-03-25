@@ -1,0 +1,54 @@
+<!-- عرض الفورم فقط إذا كان showForm = true -->
+<div *ngIf="showForm">
+    <form class="about-form" [formGroup]="createForm">
+        <h2>Create New post Form</h2>
+        
+
+
+        <div class="form-group">
+            <label for="img">Upload Image:</label>
+            <input type="file" #file (change)="uploadImage(file.files)" name="img" class="form-control"formControlName="imagepath">
+           
+          </div>
+
+
+
+
+
+
+
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" class="form-control" formControlName="title">
+          <span class="text-danger" *ngIf="createForm.controls['title'].hasError('required')">
+            Title is required
+          </span>
+        </div>
+        
+
+        
+        <div class="form-group">
+          <label for="content">Content:</label>
+          <textarea id="content" name="content" class="form-control" formControlName="content"></textarea>
+          <span class="text-danger" *ngIf="createForm.controls['content'].hasError('required')">
+            Content is required
+          </span>
+        </div>
+
+        <div class="form-group">
+            <label for="content">create date:</label>
+            <input type="date" id="createdat" name="createdat" class="form-control" formControlName="createdat">
+            <span class="text-danger" *ngIf="createForm.controls['createdat'].hasError('required')">
+                create date is required
+            </span>
+          </div>
+        
+        <!-- أزرار الإرسال والإلغاء بجانب بعض -->
+        <div class="d-flex gap-2 mt-3">
+          <button class="btn btn-primary" [disabled]="createForm.invalid" (click)="create()">Submit</button>
+          <button type="button" class="btn btn-outline-danger" (click)="hideForm()">Cancel</button>
+        </div>
+    </form>
+  </div>
+  
+ 

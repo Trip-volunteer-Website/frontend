@@ -1,0 +1,66 @@
+/* trip-map.component.css */
+#map {
+    height: 500px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .location-info, .trip-form {
+    margin-top: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  .actions {
+    margin-top: 20px;
+  }
+  
+  .alert {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  .alert-success {
+    background-color: #d4edda;
+    color: #155724;
+  }
+  
+  .alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+
+/* تحديد ارتفاع ثابت للجدول وإضافة شريط التمرير */
+.table-container {
+  max-height: 400px; /* يمكنك تعديل الارتفاع حسب الحاجة */
+  overflow-y: auto; /* إضافة شريط التمرير العمودي */
+  border: 1px solid #ddd; /* إضافة حدود للجدول */
+}
+
+/* تحسين مظهر الجدول */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2; /* لون خلفية رأس الجدول */
+  position: sticky; /* تثبيت رأس الجدول عند التمرير */
+  top: 0;
+  z-index: 1;
+}

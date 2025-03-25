@@ -1,0 +1,135 @@
+<div class="container">
+  <h2>Add New Trip</h2>
+  <p>Click on the map to select a location for the trip</p>
+
+  <div id="map" style="height: 500px; width: 100%;"></div>
+
+  <div *ngIf="showForm" class="trip-form">
+    <h3>Trip Details</h3>
+    <form [formGroup]="tripForm" (ngSubmit)="create()" >
+      <div class="form-group">
+        <label for="tripname">Trip Name</label>
+        <input type="text" id="tripname" formControlName="tripname" class="form-control">
+        <!-- <div *ngIf="tripForm.get('tripname')?.invalid && tripForm.get('tripname')?.touched">
+          <small class="text-danger">Trip Name is required</small>
+        </div> -->
+      </div>
+
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" id="location" formControlName="location" class="form-control" readonly>
+      </div>
+
+      <div class="form-group">
+        <label for="startdate">Start Date</label>
+        <input type="date" id="startdate" formControlName="startdate" class="form-control">
+        <!-- <div *ngIf="tripForm.get('startdate')?.invalid && tripForm.get('startdate')?.touched">
+          <small class="text-danger">Start Date is required</small>
+        </div> -->
+      </div>
+
+      <div class="form-group">
+        <label for="enddate">End Date</label>
+        <input type="date" id="enddate" formControlName="enddate" class="form-control">
+        <!-- <div *ngIf="tripForm.get('enddate')?.invalid && tripForm.get('enddate')?.touched">
+          <small class="text-danger">End Date is required</small>
+        </div> -->
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="number" id="price" formControlName="price" class="form-control">
+        <!-- <div *ngIf="tripForm.get('price')?.invalid && tripForm.get('price')?.touched">
+          <small class="text-danger">Price must be greater than 0</small>
+        </div> -->
+      </div>
+
+      <div class="form-group">
+        <label for="minage">Minimum Age</label>
+        <input type="number" id="minage" formControlName="minage" class="form-control">
+        <!-- <div *ngIf="tripForm.get('minage')?.invalid && tripForm.get('minage')?.touched">
+          <small class="text-danger">Minimum Age is required</small>
+        </div> -->
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" formControlName="description" class="form-control"></textarea>
+        <!-- <div *ngIf="tripForm.get('description')?.invalid && tripForm.get('description')?.touched">
+          <small class="text-danger">Description is required</small>
+        </div> -->
+      </div>
+
+      <div class="form-group">
+        <label for="maxvolunteers">Max Volunteers</label>
+        <input type="number" id="maxvolunteers" formControlName="maxvolunteers" class="form-control">
+        <!-- <div *ngIf="tripForm.get('maxvolunteers')?.invalid && tripForm.get('maxvolunteers')?.touched">
+          <small class="text-danger">Max Volunteers is required</small>
+        </div> -->
+      </div>
+
+      <div class="form-group">
+        <label for="maxusers">Max Users</label>
+        <input type="number" id="maxusers" formControlName="maxusers" class="form-control">
+        <!-- <div *ngIf="tripForm.get('maxusers')?.invalid && tripForm.get('maxusers')?.touched">
+          <small class="text-danger">Max Users is required</small>
+        </div> -->
+      </div>
+
+      <div class="form-group">
+        <label for="status">Status</label>
+        <select id="status" formControlName="status" class="form-control">
+          <option>active</option>
+          <option>pending</option>
+          <option>completed</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="longitude">Longitude</label>
+        <input type="text" id="longitude" formControlName="longitude" class="form-control" readonly>
+      </div>
+     
+      <div class="form-group">
+        <label for="latitude">Latitude</label>
+        <input type="text" id="latitude" formControlName="latitude" class="form-control" readonly>
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="tripForm.invalid">Save Trip</button>
+      <button type="button" class="btn btn-secondary" (click)="resetForm()">Cancel</button>
+    </form>
+  </div>
+</div>
+
+<!-- <div>
+  <button (click)="loadTrips()">View Trips</button>
+
+  <div *ngIf="trips.length > 0" class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Trip Name</th>
+          <th>Description</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Price</th>
+          <th>Min Age</th>
+          <th>Status</th>
+          <th>Location</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let trip of trips">
+          <td>{{ trip.tripname }}</td>
+          <td>{{ trip.description }}</td>
+          <td>{{ trip.startdate }}</td>
+          <td>{{ trip.enddate }}</td>
+          <td>{{ trip.price }}</td>
+          <td>{{ trip.minage }}</td>
+          <td>{{ trip.status }}</td>
+          <td>{{ trip.location }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div> -->

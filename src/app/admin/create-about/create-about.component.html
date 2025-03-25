@@ -1,0 +1,38 @@
+<!-- عرض الفورم فقط إذا كان showForm = true -->
+<div *ngIf="showForm">
+    <form class="about-form" [formGroup]="createForm">
+        <h2>Create New About Form</h2>
+        
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" class="form-control" formControlName="title1">
+          <span class="text-danger" *ngIf="createForm.controls['title1'].hasError('required')">
+            Title is required
+          </span>
+        </div>
+        
+        <div class="form-group">
+          <label for="img">Upload Image:</label>
+          <input type="file" #file name="img" (change)="uploadImage(file.files)" class="form-control"formControlName="img1path">
+          <span class="text-danger" *ngIf="createForm.controls['img1path'].hasError('required')">
+            Image is required
+          </span>
+        </div>
+        
+        <div class="form-group">
+          <label for="content">Content:</label>
+          <textarea id="content" name="content" class="form-control" formControlName="content"></textarea>
+          <span class="text-danger" *ngIf="createForm.controls['content'].hasError('required')">
+            Content is required
+          </span>
+        </div>
+        
+        <!-- أزرار الإرسال والإلغاء بجانب بعض -->
+        <div class="d-flex gap-2 mt-3">
+          <button class="btn btn-primary" [disabled]="createForm.invalid" (click)="create()">Submit</button>
+          <button type="button" class="btn btn-outline-danger" (click)="hideForm()">Cancel</button>
+        </div>
+    </form>
+  </div>
+  
+ 

@@ -1,0 +1,13 @@
+.post-container {
+    display: flex;
+    flex-wrap: wrap; /* يسمح للكروت بالنزول لصف جديد عند الحاجة */
+    justify-content: center; /* يجعل الكروت في المنتصف */
+    gap: 16px; /* يضيف مسافة بين الكروت */
+    padding: 20px;
+  }
+  
+  app-post-card {
+    flex: 1 1 calc(33.333% - 16px); /* يجعل كل كارد يأخذ ثلث العرض مع الحفاظ على المسافات */
+    max-width: 300px; /* تحديد الحد الأقصى لعرض الكارد */
+  }
+  

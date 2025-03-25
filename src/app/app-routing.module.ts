@@ -5,9 +5,16 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
 import { ContactComponent } from './contact/contact.component';
+import { AdminModule } from './admin/admin.module';
+import { ProfileComponent } from './profile/profile.component';
+import { PostsComponent } from './posts/posts.component';
+import { TripListMapComponent } from './trip-list-map/trip-list-map.component';
 
 const routes: Routes = [
   {path:'home',
+    component:HomeComponent
+  },
+  {path:'',
     component:HomeComponent
   },
   {
@@ -24,6 +31,20 @@ const routes: Routes = [
       path:'contact',
       component:ContactComponent
     },
+    {
+      path:'admin',
+      loadChildren:()=>AdminModule
+    }, {
+      path:'profile',
+      component:ProfileComponent
+    }, {
+      path:'posts',
+      component:PostsComponent
+    },
+    {
+      path:'triplist',
+      component:TripListMapComponent
+    }
 ];
 
 @NgModule({
