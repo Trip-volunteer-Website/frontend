@@ -14,6 +14,9 @@ import { CreatPostComponent } from './creat-post/creat-post.component';
 import { TripMapComponent } from './trip-map/trip-map.component';
 import { TripComponent } from './trip/trip.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { ViewContactComponent } from './view-contact/view-contact.component';
+import { ViewTestimonialComponent } from './view-testimonial/view-testimonial.component';
+import { ManageGalleryComponent } from './manage-gallery/manage-gallery.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     ManegpostComponent,
     CreatPostComponent,
     TripMapComponent,
-    TripComponent
+    TripComponent,
+    ViewContactComponent,
+    ViewTestimonialComponent,
+    ManageGalleryComponent
   ],
   imports: [
     CommonModule,

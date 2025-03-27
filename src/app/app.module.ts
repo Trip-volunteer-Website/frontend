@@ -16,8 +16,13 @@ import { PostCardComponent } from './post-card/post-card.component';
 import { PostsComponent } from './posts/posts.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { TokenInterceptor } from 'Interceptor/token.interceptor';
+import { TokenInterceptor } from 'src/Interceptor/token.interceptor';
 import { TripListMapComponent } from './trip-list-map/trip-list-map.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { TestimonialFormComponent } from './testimonial-form/testimonial-form.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { TripRequestFormComponent } from './trip-request-form/trip-request-form.component';
+
 @NgModule({
   declarations: [
     // المكونات (Components - Pipes - Directives)
@@ -28,7 +33,11 @@ import { TripListMapComponent } from './trip-list-map/trip-list-map.component';
     ProfileComponent,
     PostCardComponent,
     PostsComponent,
-    TripListMapComponent
+    TripListMapComponent,
+    TestimonialFormComponent,
+    GalleryComponent,
+    TripRequestFormComponent,
+  
   ],
   imports: [
     // الوحدات (Modules)
@@ -42,7 +51,8 @@ import { TripListMapComponent } from './trip-list-map/trip-list-map.component';
     ToastrModule.forRoot(),
     ToastNoAnimationModule.forRoot(),
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSnackBarModule
   ],
   providers: [
     // ✅ إصلاح خطأ Interceptor

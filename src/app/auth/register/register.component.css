@@ -1,0 +1,98 @@
+.registration-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f6f9;
+    padding: 20px;
+  }
+ 
+  .registration-form {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    padding: 40px;
+    width: 100%;
+    max-width: 600px;
+  }
+ 
+  .form-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+ 
+  .form-row {
+    display: flex;
+    gap: 20px;
+  }
+ 
+  .form-group {
+    flex: 1;
+    margin-bottom: 20px;
+  }
+ 
+  label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 500;
+  }
+ 
+  input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+ 
+  input:focus, select:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+  }
+ 
+  .invalid {
+    border-color: #ff6b6b;
+  }
+ 
+  .error-message {
+    color: #ff6b6b;
+    font-size: 0.8rem;
+    margin-top: 5px;
+  }
+ 
+  .submit-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+ 
+  .submit-button:hover:not(:disabled) {
+    background-color: #357abd;
+  }
+ 
+  .submit-button:disabled {
+    background-color: #a0c4e8;
+    cursor: not-allowed;
+  }
+ 
+  .swal2-popup {
+    font-family: 'Arial', sans-serif;
+  }
+ 
+  .swal2-title {
+    color: #4a4a4a;
+  }
+ 
+  .swal2-html-container b {
+    color: #2c3e50;
+  }

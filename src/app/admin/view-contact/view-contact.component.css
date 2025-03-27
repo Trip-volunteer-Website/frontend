@@ -1,0 +1,54 @@
+.custom-table-wrapper {
+    padding: 20px;
+    max-width: calc(100% - 260px); /* إذا السايد بار 240-260px */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .custom-table thead {
+    background: linear-gradient(to right, #FFA726, #66BB6A); /* أورانج وأخضر بارد */
+    color: white;
+    text-transform: uppercase;
+  }
+  
+  .custom-table th, .custom-table td {
+    padding: 14px 18px;
+    text-align: left;
+  }
+  
+  .custom-table tbody tr {
+    transition: background 0.2s ease-in-out;
+  }
+  
+  .custom-table tbody tr:nth-child(even) {
+    background-color: #f7f7f7;
+  }
+  
+  .custom-table tbody tr:hover {
+    background-color: #ffe0b2;
+  }
+  
+  .delete-btn {
+    background-color: #ef5350;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c62828;
+  }
+  

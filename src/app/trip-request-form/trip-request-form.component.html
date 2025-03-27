@@ -1,0 +1,104 @@
+<app-navbar></app-navbar>
+ 
+<!-- Hero Section -->
+<div class="ftco-blocks-cover-1">
+  <div class="site-section-cover overlay" style="background-image: url('../assets/HomeDesign/images/hero_1.jpg')">
+    <div class="container">
+      <div class="row align-items-center justify-content-center text-center">
+        <div class="col-md-6" data-aos="fade-up">
+          <h1 class="mb-3 text-white">Join Your Adventure</h1>
+          <p class="text-white-opacity-05">
+            Choose a trip that matches your adventure spirit and join us in making unforgettable memories.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<!-- Trip Request Section -->
+<div class="site-section">
+  <div class="container">
+ 
+    <!-- Section Title -->
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-md-10">
+        <div class="heading-39101 mb-5">
+          <span class="backdrop text-center" style="font-size: 40px;">Trip Request</span>
+          <span class="subtitle-39191">Submit Your Request</span>
+          <h3>Ready to Explore? Join Now!</h3>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Trip Request Form -->
+    <div class="row justify-content-center">
+      <div class="col-lg-10 mb-5 trip-form">
+        <form (ngSubmit)="onSubmit()">
+ 
+          <!-- Hidden User ID -->
+          <input type="text" class="form-control" id="userId" [value]="tripRequest.userid" hidden>
+ 
+          <!-- Show/Hide Trips Button -->
+          <div class="form-group text-center">
+            <button type="button" class="btn btn-success mb-4" (click)="toggleTrips()">
+              {{ showTrips ? 'Hide Trips' : 'Show Available Trips' }}
+            </button>
+          </div>
+ 
+          <!-- Available Trips -->
+          <div class="row" *ngIf="showTrips">
+            <div class="col-lg-3 col-md-6 mb-4 d-flex" *ngFor="let trip of activeTrips">
+              <div class="card flex-fill text-center p-3 shadow-sm border border-warning"
+                   [class.selected]="tripRequest.tripid === trip.tripid"
+                   (click)="tripRequest.tripid = trip.tripid">
+                <h5 class="card-title text-warning">{{ trip.tripname }}</h5>
+                <div class="card-body p-2">
+                  <p><strong>Location:</strong> {{ trip.location }}</p>
+                  <p><strong>Description:</strong> {{ trip.description }}</p>
+                  <p><strong>Price:</strong> {{ trip.price }}</p>
+                  <p><strong>Start Date:</strong> {{ trip.startdate | date:'yyyy-MM-dd' }}</p>
+                  <p><strong>End Date:</strong> {{ trip.enddate | date:'yyyy-MM-dd' }}</p>
+                </div>
+                <div class="card-footer bg-white border-0">
+                  <input
+                    type="radio"
+                    name="tripId"
+                    [(ngModel)]="tripRequest.tripid"
+                    [value]="trip.tripid"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+ 
+          <!-- Request Type Selection -->
+          <div class="form-group mt-4">
+            <label for="requestType" class="font-weight-bold">Request Type</label>
+            <select class="form-control" [(ngModel)]="tripRequest.requesttype" name="requesttype" required>
+              <option value="user">Join a trip</option>
+              <option value="volunteer">Be a Volunteer</option>
+            </select>
+          </div>
+ 
+          <!-- CV Upload (Only if Volunteer) -->
+          <div class="form-group" *ngIf="tripRequest.requesttype === 'volunteer'">
+            <label for="cvFile" class="font-weight-bold">Upload CV</label>
+            <input type="file" class="form-control" id="cvFile" (change)="onFileSelected($event)">
+          </div>
+ 
+          <!-- Submit Button -->
+          <div class="form-group text-center mt-4">
+            <button type="submit" class="btn btn-warning px-5 py-2">Submit Request</button>
+          </div>
+ 
+        </form>
+      </div>
+    </div>
+ 
+  </div>
+</div>
+ 
+<app-footer></app-footer>
+ 

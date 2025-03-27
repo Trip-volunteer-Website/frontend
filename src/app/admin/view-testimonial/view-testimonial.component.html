@@ -1,0 +1,22 @@
+<table class="table">
+    <tr>
+      <th>testimonialid</th>
+      <th>userid</th>
+      <th>content</th>
+      <th>status</th>
+      <th>Action</th>
+    </tr>
+  
+    <tr *ngFor="let test of test.test">
+      <td>{{test.testimonialid}}</td>
+      <td>{{test.userid.Fname}}</td>
+      <td>{{test.content}}</td>
+      <td>{{test.status}}</td>
+      <td>
+        <button mat-button color="primary" (click)="changeStatus(test.testimonialid, 'active')">Activate</button>
+        <button mat-button color="warn" (click)="changeStatus(test.testimonialid, 'rejected')">Reject</button>
+      </td>
+      
+          
+    </tr>
+  </table>

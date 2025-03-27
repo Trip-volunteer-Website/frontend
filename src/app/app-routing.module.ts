@@ -9,6 +9,10 @@ import { AdminModule } from './admin/admin.module';
 import { ProfileComponent } from './profile/profile.component';
 import { PostsComponent } from './posts/posts.component';
 import { TripListMapComponent } from './trip-list-map/trip-list-map.component';
+import { athurizationGuard } from './athurization.guard';
+import { GalleryComponent } from './gallery/gallery.component';
+import { TestimonialFormComponent } from './testimonial-form/testimonial-form.component';
+import { TripRequestFormComponent } from './trip-request-form/trip-request-form.component';
 
 const routes: Routes = [
   {path:'home',
@@ -33,7 +37,8 @@ const routes: Routes = [
     },
     {
       path:'admin',
-      loadChildren:()=>AdminModule
+      loadChildren:()=>AdminModule,
+     // canActivate:[athurizationGuard]
     }, {
       path:'profile',
       component:ProfileComponent
@@ -44,6 +49,18 @@ const routes: Routes = [
     {
       path:'triplist',
       component:TripListMapComponent
+    },
+    {
+      path:'gallery',
+      component:GalleryComponent
+    },
+    {
+      path:'testimonialForm',
+      component:TestimonialFormComponent
+    },
+    {
+      path:'tripRequestForm',
+      component:TripRequestFormComponent
     }
 ];
 

@@ -1,11 +1,68 @@
-<!-- <p>login works!  {{home.message}}</p> -->
-<button mat-button color="primary" (click)="login
-()">save info </button>
-
-<div class="example-container">
-  <mat-form-field>
-    <mat-label>Enter your email</mat-label>
-    <input matInput placeholder="pat@example.com" [formControl]="email" required>
-    <mat-error *ngIf="email.invalid"></mat-error>
-  </mat-form-field>
+<app-navbar></app-navbar>
+<div class="login-wrap" style="margin-bottom: 100px;">
+  <div class="login-html">
+    <input id="tab-1" type="radio" name="tab" class="sign-in" checked>
+    <label for="tab-1" class="tab">Sign In</label>
+    <input id="tab-2" type="radio" name="tab" class="sign-up">
+    <label for="tab-2" class="tab">Sign Up</label>
+ 
+    <div class="login-form">
+      <!-- Sign In Form -->
+      <div class="sign-in-htm">
+        <form>
+          <div class="group">
+            <label for="user" class="label">Username</label>
+            <input id="user" type="text" class="input" [formControl]="username">
+      <span style="color: red;" *ngIf="username.hasError('required')"> Your UserName is required</span>
+          </div>
+          <div class="group">
+            <label for="pass" class="label">Password</label>
+            <input id="pass" type="password" class="input" [formControl]="password">
+      <span style="color: red;" *ngIf="password.hasError('required')"> Your password is required</span>
+          </div>
+          <div class="group">
+            <input type="button" class="button" value="Log In" (click)="Login()">
+          </div>
+        </form>
+        <div class="hr"></div>
+        <div class="foot-lnk">
+          <a href="#forgot">Forgot Password?</a>
+        </div>
+      </div>
+ 
+      <!-- Sign Up Form 
+      <div class="sign-up-htm">
+        <form [formGroup]="registerForm">
+          <div class="group">
+            <label for="new-user" class="label">Username</label>
+            <input id="new-user" type="text" class="input" formControlName="username">
+      <span style="color: red;" *ngIf="registerForm.controls['username'].hasError('required')"> Your UserName is required</span>
+          </div>
+      <div class="group">
+            <label for="email" class="label">Email Address</label>
+            <input id="email" type="text" class="input" formControlName="email">
+      <span style="color: red;" *ngIf="registerForm.controls['email'].hasError('required')"> Your Email is required</span>
+            <span style="color: red;" *ngIf="registerForm.controls['email'].hasError('email')">Please Enter a valid Email Address</span>      
+          </div>
+          <div class="group">
+            <label for="new-pass" class="label">Password</label>
+            <input id="new-pass" type="password" class="input" formControlName="newPassword">
+          </div>
+          <div class="group">
+            <label for="repeat-pass" class="label">Repeat Password</label>
+            <input id="repeat-pass" type="password" class="input" formControlName="repeatPassword">
+          </div>
+          <div class="group">
+            <input type="button" class="button" value="Sign Up">
+          </div>
+          <div class="hr"></div>
+          <div class="foot-lnk">
+            <label for="tab-1"><a>Already Member?</a></label>
+          </div>
+        </form>
+      </div>-->
+    </div>
+  </div>
 </div>
+
+<app-footer></app-footer>

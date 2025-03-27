@@ -1,0 +1,72 @@
+.trip-card {
+    border: 1px solid #efba6c;
+    border-radius: 10px;
+    background-color: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    cursor: pointer;
+    min-height: 420px; /* Makes them more square */
+  }
+ 
+  .trip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  }
+ 
+  .trip-card h5 {
+    min-height: 48px;
+  }
+ 
+  .trip-card p {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .trip-card p {
+    min-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .card {
+    height: 100%;
+    border-radius: 10px;
+    transition: transform 0.2s;
+  }
+ 
+  .card:hover {
+    transform: scale(1.02);
+  }
+ 
+  .card-title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+ 
+  .card-body p {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  .card {
+    height: 100%;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+ 
+  .card:hover {
+    background-color: #014421; /* dark green */
+    color: white;
+  }
+ 
+  .card:hover p,
+  .card:hover h5,
+  .card:hover .card-footer {
+    color: white !important;
+  }
+ 
+  .card-footer input[type="radio"] {
+    accent-color: orange; /* keeps the radio button visible */
+  }

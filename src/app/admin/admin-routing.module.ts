@@ -6,6 +6,9 @@ import { HeaderandfooterComponent } from './headerandfooter/headerandfooter.comp
 import { ManegpostComponent } from './manegpost/manegpost.component';
 import { TripMapComponent } from './trip-map/trip-map.component';
 import { TripComponent } from './trip/trip.component';
+import { ViewContactComponent } from './view-contact/view-contact.component';
+import { ViewTestimonialComponent } from './view-testimonial/view-testimonial.component';
+import { ManageGalleryComponent } from './manage-gallery/manage-gallery.component';
 const routes: Routes = [
   {
     path:'admindashboard',
@@ -30,6 +33,18 @@ const routes: Routes = [
   {
     path:'trip',
     component:TripComponent
+  },
+  {
+    path:'contact',
+    component:ViewContactComponent
+  },
+  {
+    path:'viewtestimonial',
+    component:ViewTestimonialComponent
+  },
+  {
+    path:'manageGallery',
+    component:ManageGalleryComponent
   }
 ];
 

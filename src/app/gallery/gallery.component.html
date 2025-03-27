@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+ 
+ 
+<div class="gallery-container">
+    <div class="gallery-item" *ngFor="let image of galleryService.galleryData">
+      <img  *ngIf="image.imagepath" [src]="'../../assets/images/' + image.imagepath" alt="Gallery Image" class="gallery-img">
+      <!-- <img [src]="'../../assets/HomeDesign/images/' + image" alt="Gallery Image" class="gallery-img"> -->
+    </div>
+</div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<app-footer></app-footer>
+ 
