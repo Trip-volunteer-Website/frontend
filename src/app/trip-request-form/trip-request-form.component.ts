@@ -10,9 +10,10 @@ import { TripService } from '../Services/trip.service';
 export class TripRequestFormComponent {
   showTrips: boolean = false;
   trips: any = [{}];
- 
+ // console.log("✅ Login button clicked!");
+ //const userId = localStorage.getItem('userId');
   tripRequest = {
-    userid: 2,
+    userid: localStorage.getItem('userId'),
     tripid: null as number | null,
     requesttype: 'user',
     cvfilepath: '',

@@ -17,12 +17,15 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { ViewContactComponent } from './view-contact/view-contact.component';
 import { ViewTestimonialComponent } from './view-testimonial/view-testimonial.component';
 import { ManageGalleryComponent } from './manage-gallery/manage-gallery.component';
+import { ManageHomeComponent } from './manage-home/manage-home.component';
+import { ManageTripRequestComponent } from './manage-trip-request/manage-trip-request.component';
+import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 
 @NgModule({
   declarations: [
     AdminDashboardComponent,
     SidebarComponent,
-    ManegaboutComponent,
+      ManegaboutComponent,
     CreateAboutComponent,
     HeaderandfooterComponent,
     CreateHFComponent,
@@ -32,7 +35,10 @@ import { ManageGalleryComponent } from './manage-gallery/manage-gallery.componen
     TripComponent,
     ViewContactComponent,
     ViewTestimonialComponent,
-    ManageGalleryComponent
+    ManageGalleryComponent,
+    ManageHomeComponent,
+    ManageTripRequestComponent,
+    AdminLayoutComponent
   ],
   imports: [
     CommonModule,

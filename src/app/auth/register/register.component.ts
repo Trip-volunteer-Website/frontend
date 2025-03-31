@@ -38,7 +38,60 @@ export class RegisterComponent {
     this.authService.UploadAttachment(formData);
   }
  
-
+  // onSubmit() {
+  //   if (this.registrationForm.invalid) {
+  //     alert('Please fill all required fields.');
+  //     return;
+  //   }
+ 
+  //   const formData = this.registrationForm.value;
+  //   const userData = {
+  //     ...formData,
+  //     username: formData.email.split('@')[0],
+  //     roleId: 2,
+  //     imagepath: this.authService.display_image || null
+  //   };
+ 
+  //   this.authService.registerUser(userData).subscribe({
+  //     next: (resp: any) => {
+  //       console.log('Full registration response:', resp);
+       
+  //       // Correct way to access the user ID from the response
+  //       const userId = resp.body?.userId; // Note: lowercase 'd' in 'userId'
+       
+  //       if (!userId) {
+  //         console.error('User ID not found in response:', resp);
+  //         alert('Registration succeeded but we encountered an issue. Please contact support.');
+  //         return;
+  //       }
+     
+  //       const loginData = {
+  //         username: userData.username,
+  //         userid: userId, // Use the correct userId here
+  //         password: userData.password,
+  //         roleid: 2
+  //       };
+ 
+  //       this.authService.createLoginRecord(loginData).subscribe({
+  //         next: () => {
+  //           alert('Registration successful!');
+  //           this.router.navigate(['/login']);
+  //         },
+  //         error: (err) => {
+  //           console.error('Login record error:', err);
+  //           alert('Account created successfully! Please login manually.');
+  //           this.router.navigate(['/login']);
+  //         }
+  //       });
+  //     },
+  //     error: (error) => {
+  //       console.error('Registration error:', error);
+  //       const errorMsg = error.error?.message ||
+  //                       'Registration failed. Please try again.';
+  //       alert(errorMsg);
+  //     }
+  //   });
+  // }
  
   onSubmit() {
     if (this.registrationForm.invalid) {
@@ -80,7 +133,7 @@ export class RegisterComponent {
                     `,
               icon: 'success',
               confirmButtonText: 'Continue to Login'
-            }).then((result: { isConfirmed: any; }) => {
+            }).then((result) => {
               if (result.isConfirmed) {
                 this.router.navigate(['/login']);
               }

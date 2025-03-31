@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module';
 import { ContactService } from '../Services/contact.service';
+
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -17,6 +18,11 @@ export class ContactComponent {
     content: new FormControl("", [Validators.required])
   });
 Create(){
- this.contactform.createNewContant(this.createForm.value)
+ this.contactform.createNewContant(this.createForm.value);
+ if (this.createForm.valid) {
+  alert('Thank you for contacting us!');
+  this.createForm.reset();
+}
+
 }
 }

@@ -1,0 +1,92 @@
+<!-- Create Request Button -->
+<button type="button" (click)="openCreateDialog()" class="btn btn-info m-1">Create a Request</button>
+ 
+<!-- Table with Updated Style and PDF Preview for CV -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Request ID</th>
+            <th>User ID</th>
+            <th>Trip ID</th>
+            <th>Request Type</th>
+            <th>CV</th>
+            <th>Request Date</th>
+            <th>Status</th>
+            <th>Payment ID</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let triprq of tripReq.tripReqData">
+            <td>{{ triprq.requestid }}</td>
+            <td>{{ triprq.userid }}</td>
+            <td>{{ triprq.tripid }}</td>
+            <td>{{ triprq.requesttype }}</td>
+            <td>
+              <a class="btn btn-info btn-small" [href]="'/assets/CVs/' + triprq.cvfilepath" target="_blank" download>
+                View / Download CV
+              </a>
+             </td>
+            <td>{{ triprq.requestedat | date: 'yyyy-MM-dd' }}</td>
+            <td>{{ triprq.status }}</td>
+            <td>{{ triprq.paymentid }}</td>
+            <td>
+               
+                <button class="btn btn-info btn-small" (click)="openUpdateDialog(triprq, 'approved')">Approve</button>
+                <button class="btn btn-info btn-small" (click)="openUpdateDialog(triprq, 'rejected')">Reject</button>
+                <button class="btn btn-danger btn-small" (click)="openDeleteDailog(triprq.requestid)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+ 
+<!-- Delete Dialog Template -->
+<ng-template #callDeleteDialog>
+    <h1 mat-dialog-title>Delete Trip Request</h1>
+    <div mat-dialog-content>Are you sure you want to delete this item?</div>
+    <div mat-dialog-actions>
+        <button mat-button mat-dialog-close="yes">Yes</button>
+        <button mat-button mat-dialog-close="no">No</button>
+    </div>
+</ng-template>
+ 
+<!-- Update Dialog Template -->
+<ng-template #callUpdateDailog>
+    <h1 mat-dialog-title>Update Request</h1>
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="updateForm">
+            <mat-form-field class="example-full-width">
+                <mat-label>User Id</mat-label>
+                <input matInput formControlName="userid" [(ngModel)]="previousData.userid">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Trip Id</mat-label>
+                <input matInput formControlName="tripid" [(ngModel)]="previousData.tripid">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Request Type</mat-label>
+                <input matInput formControlName="requesttype" [(ngModel)]="previousData.requesttype">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>CV</mat-label>
+                <textarea matInput formControlName="cvfilepath" [(ngModel)]="previousData.cvfilepath"></textarea>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Request Date</mat-label>
+                <textarea matInput formControlName="requestedat" [(ngModel)]="previousData.requestedat"></textarea>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Status</mat-label>
+                <textarea matInput formControlName="status" [(ngModel)]="previousData.status"></textarea>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Payment Id</mat-label>
+                <textarea matInput formControlName="paymentid" [(ngModel)]="previousData.paymentid"></textarea>
+            </mat-form-field>
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button (click)="saveChanges()" mat-dialog-close cdkFocusInitial>Save</button>
+    </mat-dialog-actions>
+</ng-template>

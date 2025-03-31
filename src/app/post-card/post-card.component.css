@@ -29,3 +29,8 @@ app-post-card {
   object-fit: cover; /* Ensures the image maintains aspect ratio and fills the space */
   border-radius: 8px 8px 0 0; /* Rounds top corners */
 }
+.main-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}

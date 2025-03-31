@@ -1,22 +1,22 @@
 <table class="table">
     <tr>
       <th>testimonialid</th>
-      <th>userid</th>
+      <th>username</th>
       <th>content</th>
       <th>status</th>
       <th>Action</th>
     </tr>
   
-    <tr *ngFor="let test of test.test">
+    <tr *ngFor="let test of testimonials">
       <td>{{test.testimonialid}}</td>
-      <td>{{test.userid.Fname}}</td>
+      <!-- التأكد من أن test.user ليس null أو undefined قبل محاولة الوصول إلى fname -->
+      <td>{{test.user?.fname}}  {{test.user?.lname}}</td>
       <td>{{test.content}}</td>
       <td>{{test.status}}</td>
       <td>
         <button mat-button color="primary" (click)="changeStatus(test.testimonialid, 'active')">Activate</button>
         <button mat-button color="warn" (click)="changeStatus(test.testimonialid, 'rejected')">Reject</button>
       </td>
-      
-          
     </tr>
+    
   </table>

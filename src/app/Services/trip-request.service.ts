@@ -58,19 +58,8 @@ export class TripRequestService {
         alert('Something went wrong');
       });
   }
-  //C:\Users\Sundos\Desktop\FinalFront\frontend\VIA-TERRA\src\assets\CVs
+
   displayCV: any;
-  // uploadAttachment(file : FormData)
-  // {
-  //   this.http.post(`${this.apiUrl}/uploadAttachment`,file).subscribe((resp : any) =>
-  //   {
-  //     console.log("Resp Upload Function", resp);
-  //     this.displayCV = resp.filePath;
-  //   },err => {
-  //     alert('Somethig went wrong');
-  //     console.log(err);
-  //   })
-  // }
  
   uploadAttachment(file: FormData, onUploaded: (fileName: string) => void) {
     this.http.post(`${this.apiUrl}/uploadAttachment`, file).subscribe((resp: any) => {

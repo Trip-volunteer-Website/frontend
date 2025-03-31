@@ -30,19 +30,21 @@
         </div>
       </div>
  
-      <!-- Sign Up Form 
+
+      
+      <!-- Sign Up Form  -->
       <div class="sign-up-htm">
-        <form [formGroup]="registerForm">
+        <form>
           <div class="group">
             <label for="new-user" class="label">Username</label>
             <input id="new-user" type="text" class="input" formControlName="username">
-      <span style="color: red;" *ngIf="registerForm.controls['username'].hasError('required')"> Your UserName is required</span>
+  <!-- /    <span style="color: red;" *ngIf="registerForm.controls['username'].hasError('required')"> Your UserName is required</span> -->
           </div>
       <div class="group">
             <label for="email" class="label">Email Address</label>
             <input id="email" type="text" class="input" formControlName="email">
-      <span style="color: red;" *ngIf="registerForm.controls['email'].hasError('required')"> Your Email is required</span>
-            <span style="color: red;" *ngIf="registerForm.controls['email'].hasError('email')">Please Enter a valid Email Address</span>      
+      <!-- <span style="color: red;" *ngIf="registerForm.controls['email'].hasError('required')"> Your Email is required</span>
+            <span style="color: red;" *ngIf="registerForm.controls['email'].hasError('email')">Please Enter a valid Email Address</span>       -->
           </div>
           <div class="group">
             <label for="new-pass" class="label">Password</label>
@@ -60,7 +62,7 @@
             <label for="tab-1"><a>Already Member?</a></label>
           </div>
         </form>
-      </div>-->
+      </div>
     </div>
   </div>
 </div>

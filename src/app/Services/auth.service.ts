@@ -32,14 +32,17 @@ export class AuthService {
         localStorage.setItem('token', resp.toString());
   
         const user: any = jwtDecode(resp.toString());
+        
         localStorage.setItem('user', JSON.stringify(user));
-  
+        localStorage.setItem('userId', user.userId);
+
+        console.log("🟢 Logged-in User ID:", user.userId); // ✅ هان بتحطه
         if (user.RoleId == '1') {
           this.toastr.success("Welcome on Admin Dashboard");
           this.router.navigate(['admin/admindashboard']);
         } else if (user.RoleId == '2'|| user.RoleId == '3') {
           this.toastr.success("Welcome on Home");
-          this.router.navigate(['home']);
+          this.router.navigate(['/home']);
         }
       }, err => {
         this.toastr.error("Username or password incorrect");

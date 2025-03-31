@@ -9,42 +9,26 @@ import { TripComponent } from './trip/trip.component';
 import { ViewContactComponent } from './view-contact/view-contact.component';
 import { ViewTestimonialComponent } from './view-testimonial/view-testimonial.component';
 import { ManageGalleryComponent } from './manage-gallery/manage-gallery.component';
+import { ManageHomeComponent } from './manage-home/manage-home.component';
+import { ManageTripRequestComponent } from './manage-trip-request/manage-trip-request.component';
+import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 const routes: Routes = [
   {
-    path:'admindashboard',
-    component:AdminDashboardComponent
-  },
-  {
-    path:'manegabout',
-    component:ManegaboutComponent
-  },
-  {
-    path:'headerandfooter',
-    component:HeaderandfooterComponent
-  },
-  {
-    path:'manegpost',
-    component:ManegpostComponent
-  },
-  {
-    path:'tripmap',
-    component:TripMapComponent
-  },
-  {
-    path:'trip',
-    component:TripComponent
-  },
-  {
-    path:'contact',
-    component:ViewContactComponent
-  },
-  {
-    path:'viewtestimonial',
-    component:ViewTestimonialComponent
-  },
-  {
-    path:'manageGallery',
-    component:ManageGalleryComponent
+    path: '',
+    component: AdminLayoutComponent, // 🧠 هاد هو الي فيه الهيدر والسايدبار
+    children: [
+      { path: 'admindashboard', component: AdminDashboardComponent },
+      { path: 'manegabout', component: ManegaboutComponent },
+      { path: 'headerandfooter', component: HeaderandfooterComponent },
+      { path: 'manegpost', component: ManegpostComponent },
+      { path: 'tripmap', component: TripMapComponent },
+      { path: 'trip', component: TripComponent },
+      { path: 'contact', component: ViewContactComponent },
+      { path: 'viewtestimonial', component: ViewTestimonialComponent },
+      { path: 'manageGallery', component: ManageGalleryComponent },
+      { path: 'manageHome', component: ManageHomeComponent },
+      { path: 'manageTripReq', component: ManageTripRequestComponent }
+    ]
   }
 ];
 

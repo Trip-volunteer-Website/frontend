@@ -1,15 +1,19 @@
-<mat-card class="post-card">
+
+<div class="main-wrapper">
+  <mat-card class="post-card">
     <mat-card-header>
       <mat-card-title-group>
         <mat-card-title>{{ PostObj.title }}</mat-card-title>
         <mat-card-subtitle>{{ PostObj.createdat }}</mat-card-subtitle>
       </mat-card-title-group>
     </mat-card-header>
-  
+
     <img mat-card-image src="../../assets/images/{{ PostObj.imagepath}}" alt="Post Image" (click)="showProfile()">
-  
+
     <mat-card-content>
       {{ PostObj.content }}
     </mat-card-content>
   </mat-card>
-  
+</div>
+
+
