@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HeaderandfooterComponent } from 'src/app/admin/headerandfooter/headerandfooter.component';
 
 @Component({
   selector: 'app-navbar',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  
 
 }

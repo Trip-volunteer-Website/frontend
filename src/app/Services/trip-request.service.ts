@@ -72,7 +72,12 @@ export class TripRequestService {
     });
   }
  
- 
+  getAvailableSeats(tripId: number): Observable<any> {
+    return this.http.get<any>(`https://localhost:7187/api/Trip/availableSeats`, {
+      params: { tripId: tripId.toString() }
+    });
+  }
+  
  
  
  

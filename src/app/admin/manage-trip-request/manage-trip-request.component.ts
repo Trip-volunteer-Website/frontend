@@ -11,6 +11,7 @@ import { TripRequestService } from 'src/app/Services/trip-request.service';
 })
 export class ManageTripRequestComponent implements OnInit {
   previousData: any = {};
+  tripIdToCheck: number | undefined;
   constructor(public tripReq: TripRequestService ,public dialog: MatDialog,public sanitizer: DomSanitizer ){}
   @ViewChild('callDeleteDialog') deleteDialog!:TemplateRef<any>;
   @ViewChild('callUpdateDailog') updateDailog!: TemplateRef<any>
@@ -81,4 +82,23 @@ openDeleteDailog(id: number) {
   }
 })
 }
+availableSeats: { tripid: number, userSeats: number, volunteerSeats: number } | null = null;
+checkAvailableSeats() {
+  if (!this.tripIdToCheck) {
+    alert('Please enter a Trip ID');
+    return;
+  }
+
+  this.tripReq.getAvailableSeats(this.tripIdToCheck).subscribe({
+    next: (res) => this.availableSeats = res,
+    error: (err) => {
+      console.error(err);
+      alert('Could not retrieve seat info for the given Trip ID.');
+      this.availableSeats = null;
+    }
+  });
+}
+ 
+
+
 }
