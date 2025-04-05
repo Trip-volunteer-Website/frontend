@@ -13,13 +13,13 @@ export class TripRequestService {
  
   constructor(private http: HttpClient) {}
  
- 
- 
+
   getAllRequests() {
    
     this.http.get(`${this.apiUrl}/all`)
       .subscribe((res: any) => {
-        this.tripReqData = res;
+        this.tripReqData = res.filter((r: any) => r.status === "pending");
+
         console.log(this.tripReqData);
       }, err => {
         console.log('Error:', err.status);
@@ -74,9 +74,18 @@ export class TripRequestService {
  
  
  
+  getPendingRequestsCount(): number {
+    if (!this.tripReqData || this.tripReqData.length === 0) return 0;
+    return this.tripReqData.filter((request: any) =>
+      request.status === 'pending').length;
+  }
  
  
- 
+  getAvailableSeats(tripId: number): Observable<any> {
+    return this.http.get<any>(`https://localhost:7187/api/Trip/availableSeats`, {
+      params: { tripId: tripId.toString() }
+    });
+  }
  
 }
  

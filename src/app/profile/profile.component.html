@@ -1,121 +1,77 @@
-
 <div class="profile-container">
   <div class="profile-header">
     <div class="profile-image-container">
-      <img src="../../assets/profile-img/download (7).jpg" alt="Profile Image" class="profile-image"> <!--[src]="user.profileImage"-->
+      <img [src]="profile.userData.profileImage || 'assets/profile-img/default.jpg'" alt="Profile Image" class="profile-image">
       <label class="update-image">
         <input type="file" (change)="updateProfileImage($event)" hidden>
-       
       </label>
     </div>
-
+ 
     <div class="profile-info">
-      <h2>{{ user.firstName }} {{ user.lastName }}</h2>
-      <p><strong>Country:</strong> {{ user.country }}</p>
-      <p><strong>Email:</strong> {{ user.email }}</p>
-      <p><strong>Phone:</strong> {{ user.phone }}</p>
-      <p><strong>Age:</strong> {{ user.age }}</p>
-<!-- زر فتح النموذج -->
-<button class="edit-btn" (click)="openEditForm()">✏️ Edit Profile</button>
-
-<!-- ✅ نموذج تحديث الملف الشخصي (Modal) -->
-<div class="modal-overlay" *ngIf="showEditForm">
-  <div class="modal-content">
-    <h2>Edit Profile</h2>
-  
-    <div class="form-group">
-      <label>First Name:</label>
-      <input type="text" [(ngModel)]="user.firstName">
-      
-      <label>Last Name:</label>
-      <input type="text" [(ngModel)]="user.lastName">
-    </div>
-  
-    <div class="form-group">
-      <label>Country:</label>
-      <input type="text" [(ngModel)]="user.country">
-  
-      <label>Email:</label>
-      <input type="email" [(ngModel)]="user.email">
-    </div>
-  
-    <div class="form-group">
-      <label>Phone:</label>
-      <input type="text" [(ngModel)]="user.phone">
-  
-      <label>Age:</label>
-      <input type="number" [(ngModel)]="user.age">
-    </div>
-  
-    <label>Profile Image:</label>
-    <input type="file" (change)="updateProfileImage($event)">
-    <img [src]="user.profileImage" class="preview-image" *ngIf="user.profileImage">
-  
-    <button (click)="saveProfile()" class="save-btn">Save</button>
-    <button (click)="closeEditForm()" class="close-btn">Cancel</button>
+      <h2>{{ profile.userData.firstName }} {{ profile.userData.lastName }}</h2>
+      <p><strong>Country:</strong> {{ profile.userData.country }}</p>
+      <p><strong>Email:</strong> {{ profile.userData.email }}</p>
+      <p><strong>Phone:</strong> {{ profile.userData.phone }}</p>
+      <p><strong>Age:</strong> {{ profile.userData.age }}</p>
+ 
+      <button class="btn btn-primary m-1" (click)="openUpdateDialog(profile)">Edit Profile</button>
+ 
+      <li><a routerLink="/pay" class="nav-link">pay</a></li>
+ 
+ 
+<ng-template #callUpdateDialog>
+  <div class="custom-dialog-container">
+    <form class="trip-form" [formGroup]="updateForm">
+      <h2>Update Trip Form</h2>
+ 
+     
+      <div class="form-group">
+       
+        <input type="hidden" id="userid" name="userid" class="form-control" formControlName="userid" readonly>
+      </div>
+ 
+     
+      <div class="form-group">
+        <label for="email">email:</label>
+        <input type="email" id="email" name="email" class="form-control" formControlName="email">
+      </div>
+ 
+     
+      <div class="form-group">
+        <label for="phone">phone:</label>
+        <input type="number" id="phone" name="phone" class="form-control" formControlName="phone">
+      </div>
+ 
+     
+      <div class="form-group">
+        <label for="fname">End Date:</label>
+        <input type="text" id="fname" name="fname" class="form-control" formControlName="fname">
+      </div>
+ 
+      <div class="form-group">
+        <label for="lname">End Date:</label>
+        <input type="text" id="lname" name="lname" class="form-control" formControlName="lname">
+      </div>
+ 
+      <div class="form-group">
+        <label for="country">End Date:</label>
+        <input type="text" id="country" name="country" class="form-control" formControlName="country">
+      </div>
+ 
+      <div class="form-group">
+        <label for="age">age:</label>
+        <input type="number" id="age" name="age" class="form-control" formControlName="age">
+      </div>
+      <div class="example-container">
+         <input type="file" #file formControlName="imagePath" (change)="UploadImage(file.files)">
+      </div>
+ 
+      <!-- Submit and Cancel buttons -->
+      <div class="d-flex gap-2 mt-3">
+        <button class="btn btn-primary" (click)="updateProfile()">Update</button>
+        <button type="button" class="btn btn-outline-danger" (click)="closeEditForm()">Cancel</button>
+      </div>
+    </form>
   </div>
-  
-</div>
-    </div>
-  </div> <!-- تم إغلاق profile-header هنا -->
-
-  <h3>Trip Requests</h3>
-  <table class="trip-requests">
-    <thead>
-      <tr>
-        <th>Request Date</th>
-        <th>Trip Name</th>
-        <th>Status</th>
-        <th>Action</th> <!-- عمود زر الحذف -->
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let trip of tripRequests">
-        <td>{{ trip.date }}</td>
-        <td>{{ trip.name }}</td>
-        <td>
-          <span class="status-badge" [ngClass]="'status-' + trip.status">
-            {{ trip.status }}
-          </span>
-        </td>
-        <td>
-          <button class="delete-btn" (click)="deleteTrip(trip)">
-            🗑
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h3>Invoices</h3>
-  <div class="invoice-search">
-    <input type="date" [(ngModel)]="searchDate" (change)="filterInvoices()" placeholder="Search by date" class="invoice-search-input">
-  </div>
-
-  <table class="invoice-table">
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Download</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let invoice of filteredInvoices">
-        <td>{{ invoice.date }}</td>
-        <td><button (click)="downloadInvoice(invoice.file)" class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-bar-down" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M1 3.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5M8 6a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 .708-.708L7.5 12.293V6.5A.5.5 0 0 1 8 6"/>
-        </svg></button></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h3>Testimonials</h3>
-  <button class="addTestimoiaul" (click)="showTestimonialInput = !showTestimonialInput">Add Testimonial</button>
-  <div *ngIf="showTestimonialInput">
-    <textarea [(ngModel)]="newTestimonial"></textarea>
-    <button class="send-testi" (click)="addTestimonial()">Submit</button>
-  </div>
-  <ul>
-    <li *ngFor="let testimonial of testimonials">{{ testimonial }}</li>
-  </ul>
-</div> <!-- إغلاق profile-container -->
+</ng-template>
+ 

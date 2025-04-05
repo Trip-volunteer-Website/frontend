@@ -1,16 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module';
 import { ContactService } from '../Services/contact.service';
+import { HeaderandfooterService } from '../Services/headerandfooter.service';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent {
-  constructor(private contactform:ContactService){}
+export class ContactComponent implements OnInit{
+
+  ngOnInit(): void {
+    this.HF.getAllHF();
+  
+    setTimeout(() => {
+      console.log('Loaded header/footer data:', this.HF.headerandfooterarr);
+    }, 2000);
+  }
+  
+  constructor(private contactform:ContactService , private HF :HeaderandfooterService){}
   createForm: FormGroup = new FormGroup({
     name: new FormControl("", [Validators.required]),
     email: new FormControl("", [Validators.required, Validators.email]),
@@ -25,4 +35,9 @@ Create(){
 }
 
 }
+get headerFooterInfo(): any {
+  return this.HF.headerandfooterarr[0]; // أول عنصر فقط
+}
+
+
 }

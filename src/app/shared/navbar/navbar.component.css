@@ -1,0 +1,13 @@
+.site-navbar .site-logo a img {
+    width: 100px;
+}
+.site-navbar {
+    margin-bottom: 0px;
+    z-index: 1999;
+    top: 0;
+    width: 100%;
+    padding: 1rem;
+    /* background: #19190b3b; */
+    background: rgb(235,235,231);
+background: linear-gradient(0deg, rgba(235,235,231,1) 0%, rgba(202,202,199,1) 51%, rgba(158,157,157,1) 100%);
+}

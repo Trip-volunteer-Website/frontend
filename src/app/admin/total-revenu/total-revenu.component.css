@@ -1,0 +1,113 @@
+.revenue-container {
+    padding: 300px;
+    font-family: Arial, sans-serif;
+  }
+ 
+  .revenue-section {
+    margin-bottom: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+ 
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+ 
+  .table th, .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+ 
+  .table th {
+    background-color: #f2f2f2;
+  }
+ 
+  .table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+ 
+  .report-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    align-items: center;
+  }
+ 
+  .filters {
+    display: flex;
+    gap: 15px;
+  }
+ 
+  .filter-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+ 
+  .export-buttons {
+    display: flex;
+    gap: 10px;
+  }
+ 
+  .export-buttons button {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+  }
+ 
+  .export-buttons button:hover {
+    background-color: #45a049;
+  }
+ 
+  select {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    min-width: 120px;
+  }
+ 
+  .chart-container {
+    position: relative;
+    height: 400px;
+    margin-bottom: 20px;
+  }
+ 
+  @media (max-width: 768px) {
+    .report-controls {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 15px;
+    }
+   
+    .filters {
+      flex-direction: column;
+      gap: 10px;
+    }
+   
+    .filter-group {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+   
+    .export-buttons {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+   
+    .chart-container {
+      height: 300px;
+    }
+  }

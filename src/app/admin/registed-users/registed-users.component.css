@@ -1,0 +1,89 @@
+/* تنسيق الصفحة */
+.users-container {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(to right, #ece9e6, #ffffff);
+    min-height: 100vh;
+  }
+ 
+  h2 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #333;
+    margin-top: 40px;
+  }
+ 
+  /* شبكة الكروت: 4 كروت في كل صف */
+  .users-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+  }
+ 
+  /* تصميم الكرت */
+  .user-card {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+ 
+  .user-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+ 
+  /* صورة المستخدم */
+  .user-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 4px solid #ff7eb3;
+  }
+ 
+  /* معلومات المستخدم */
+  .user-info {
+    padding: 15px;
+  }
+ 
+  .user-info h3 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+ 
+  .user-info p {
+    color: #666;
+    margin: 5px 0;
+  }
+ 
+  /* تحسين الاستجابة */
+  @media (max-width: 1200px) {
+    .users-grid {
+      grid-template-columns: repeat(3, 1fr); /* 3 كروت في كل صف */
+    }
+  }
+ 
+  @media (max-width: 768px) {
+    .users-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 كرت في كل صف */
+    }
+  }
+ 
+  @media (max-width: 480px) {
+    .users-grid {
+      grid-template-columns: 1fr; /* كرت واحد في كل صف */
+    }
+  }
+ 
+  .users-grid[_ngcontent-ng-c1328802492] {
+    display: grid
+;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: center;
+    padding: 32px;
+    margin: 0 40px 0 171px;
+}

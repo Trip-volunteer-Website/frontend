@@ -13,6 +13,7 @@ import { athurizationGuard } from './athurization.guard';
 import { GalleryComponent } from './gallery/gallery.component';
 import { TestimonialFormComponent } from './testimonial-form/testimonial-form.component';
 import { TripRequestFormComponent } from './trip-request-form/trip-request-form.component';
+import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
   {path:'home',
@@ -61,6 +62,10 @@ const routes: Routes = [
     {
       path:'tripRequestForm',
       component:TripRequestFormComponent
+    },
+    {
+      path:'pay',
+      component:PaymentComponent
     }
 ];
 

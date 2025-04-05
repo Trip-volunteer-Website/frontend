@@ -1,100 +1,88 @@
-
- 
- 
 <!-- ✅ Home Data Table -->
 <table class="table table-bordered mt-3">
   <thead class="thead-dark">
     <tr>
       <th>Home ID</th>
-      <th>Title 1</th>
-      <th>Title 2</th>
-      <th>Title 3</th>
-      <th>P 1</th>
-      <th>P 2</th>
-      <th>P 3</th>
-      <th>Img 1</th>
-      <th>Img 2</th>
-      <th>Img 3</th>
+      <th>Title</th>
+      <th>Paragraphs</th>
+      <th>Images</th>
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let home of homeData">
       <td>{{ home.id }}</td>
-      <td>{{ home.title1 }}</td>
-      <td>{{ home.title2 }}</td>
-      <td>{{ home.title3 }}</td>
-      <td>{{ home.p1 }}</td>
-      <td>{{ home.p2 }}</td>
-      <td>{{ home.p3 }}</td>
       <td>
-        <!-- C:\Users\Sundos\Desktop\FinalFront\frontend\VIA-TERRA\src\assets\images\hero_1.jpg -->
-        <img *ngIf="home.img1path" [src]="'../../assets/images/' + home.img1path" width="80">
+        <strong>{{ home.title1 }}</strong><br>
+        <span>{{ home.title2 }}</span><br>
+        <span>{{ home.title3 }}</span>
       </td>
       <td>
-        <img *ngIf="home.img2path" [src]="'../../assets/images/'+ home.img2path" width="80">
+        <p>{{ home.p1 }}</p>
+        <p>{{ home.p2 }}</p>
+        <p>{{ home.p3 }}</p>
       </td>
       <td>
-        <img *ngIf="home.img3path" [src]="'../../assets/images/' + home.img3path"width="80">
+        <div *ngIf="home.img1path">
+          <img [src]="'../../assets/images/' + home.img1path" width="80" alt="Image 1">
+        </div>
+        <div *ngIf="home.img2path">
+          <img [src]="'../../assets/images/'+ home.img2path" width="80" alt="Image 2">
+        </div>
+        <div *ngIf="home.img3path">
+          <img [src]="'../../assets/images/' + home.img3path" width="80" alt="Image 3">
+        </div>
       </td>
       <td>
-        <button class="btn btn-danger" (click)="openUpdateDialog(home)">Update</button>
+        <button class="btn btn-warning" (click)="openUpdateDialog(home)">Update</button>
       </td>
     </tr>
   </tbody>
 </table>
+
  
- 
- 
- 
-<!-- Update Home Data Dialog -->
+ <!-- Update Home Data Dialog -->
 <ng-template #updateDialog>
   <h1 mat-dialog-title>Update Home Data</h1>
   <mat-dialog-content class="mat-typography">
-    <form [formGroup]="updateForm">
+    <form [formGroup]="updateForm" class="form-container">
+      <!-- Title Fields -->
       <mat-form-field class="example-full-width">
         <mat-label>Title 1</mat-label>
         <input matInput formControlName="title1" [(ngModel)]="previousData.title1">
-       
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <mat-label>Title 2</mat-label>
-        <input matInput formControlName="title2"  [(ngModel)]="previousData.title2">
-       
+        <input matInput formControlName="title2" [(ngModel)]="previousData.title2">
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <mat-label>Title 3</mat-label>
         <input matInput formControlName="title3" [(ngModel)]="previousData.title3">
-       
       </mat-form-field>
+      
+      <!-- Paragraph Fields -->
       <mat-form-field class="example-full-width">
         <mat-label>Paragraph 1</mat-label>
-        <textarea matInput formControlName="p1"  [(ngModel)]="previousData.p1"></textarea>
-       
+        <textarea matInput formControlName="p1" [(ngModel)]="previousData.p1"></textarea>
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <mat-label>Paragraph 2</mat-label>
         <textarea matInput formControlName="p2" [(ngModel)]="previousData.p2"></textarea>
-       
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <mat-label>Paragraph 3</mat-label>
-        <textarea matInput formControlName="p3"  [(ngModel)]="previousData.p3"></textarea>
-       
+        <textarea matInput formControlName="p3" [(ngModel)]="previousData.p3"></textarea>
       </mat-form-field>
- 
-      <!-- ✅ Image Upload Fields -->
+
+      <!-- Image Upload Fields -->
       <div class="example-container">
-        <input type="file" #file formControlName="img1path"
-        (change)="uploadImage($event, 'img1path')">
+        <input type="file" #file formControlName="img1path" (change)="uploadImage($event, 'img1path')">
       </div>
       <div class="example-container">
-        <input type="file" #file formControlName="img2path"
-        (change)="uploadImage($event, 'img2path')">
+        <input type="file" #file formControlName="img2path" (change)="uploadImage($event, 'img2path')">
       </div>
       <div class="example-container">
-        <input type="file" #file formControlName="img3path"
-        (change)="uploadImage($event, 'img3path')">
+        <input type="file" #file formControlName="img3path" (change)="uploadImage($event, 'img3path')">
       </div>
     </form>
   </mat-dialog-content>
@@ -103,4 +91,3 @@
     <button mat-button (click)="saveChanges()" mat-dialog-close cdkFocusInitial>Save</button>
   </mat-dialog-actions>
 </ng-template>
- 

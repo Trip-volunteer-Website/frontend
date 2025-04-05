@@ -1,7 +1,7 @@
 
 
 <div class="custom-table-wrapper">
-    <table class="custom-table">
+  <table class="table">
       <thead>
         <tr>
           <th>id</th>
@@ -20,7 +20,7 @@
           <td>{{contact.phonenumber}}</td>
           <td>{{contact.content}}</td>
           <td>
-            <button class="delete-btn" (click)="openDeleteDialoge(contact.contactid)">delete</button>
+            <button  mat-button color="warn" (click)="openDeleteDialoge(contact.contactid)">delete</button>
           </td>
         </tr>
       </tbody>

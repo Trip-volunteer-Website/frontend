@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { jwtDecode } from "jwt-decode";
+import { Observable } from 'rxjs';
  
  
 @Injectable({
@@ -35,7 +36,7 @@ export class AuthService {
         
         localStorage.setItem('user', JSON.stringify(user));
         localStorage.setItem('userId', user.userId);
-
+     
         console.log("🟢 Logged-in User ID:", user.userId); // ✅ هان بتحطه
         if (user.RoleId == '1') {
           this.toastr.success("Welcome on Admin Dashboard");
@@ -91,6 +92,29 @@ this.http.get("https://localhost:7187/api/User").subscribe(resp=>{this.user=resp
       roleid: loginData.roleid
     };
     return this.http.post(`${this.loginUrl}`, formattedData);
+  }
+  getRole2Users(): Observable<any[]> {
+    return new Observable<any[]>(observer => {
+      this.http.get<any[]>("https://localhost:7187/api/User").subscribe(
+        users => {
+          console.log("🟢 All Users:", users);  
+ 
+          const role2Users = users.filter(user => user.roleid === 2);
+          const role3Users = users.filter(user => user.roleid === 3);  
+         
+          console.log("🟢 Role 2 users:", role2Users);  
+          console.log("🟢 Role 3 users (Volunteers):", role3Users);  
+ 
+          // إرسال مصفوفات المستخدمين والمتطوعين في نفس المصفوفة
+          observer.next([...role2Users, ...role3Users]);  
+          observer.complete();
+        },
+        err => {
+          console.log(err);
+          observer.error(err);
+        }
+      );
+    });
   }
    
 }  

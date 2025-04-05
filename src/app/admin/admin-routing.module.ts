@@ -12,12 +12,15 @@ import { ManageGalleryComponent } from './manage-gallery/manage-gallery.componen
 import { ManageHomeComponent } from './manage-home/manage-home.component';
 import { ManageTripRequestComponent } from './manage-trip-request/manage-trip-request.component';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
+import { TotalRevenuComponent } from './total-revenu/total-revenu.component';
+import { StatickeyComponent } from './statickey/statickey.component';
+import { RegistedUsersComponent } from './registed-users/registed-users.component';
 const routes: Routes = [
   {
     path: '',
     component: AdminLayoutComponent, // 🧠 هاد هو الي فيه الهيدر والسايدبار
     children: [
-      { path: 'admindashboard', component: AdminDashboardComponent },
+      { path: 'admindashboard', component: StatickeyComponent },
       { path: 'manegabout', component: ManegaboutComponent },
       { path: 'headerandfooter', component: HeaderandfooterComponent },
       { path: 'manegpost', component: ManegpostComponent },
@@ -27,7 +30,10 @@ const routes: Routes = [
       { path: 'viewtestimonial', component: ViewTestimonialComponent },
       { path: 'manageGallery', component: ManageGalleryComponent },
       { path: 'manageHome', component: ManageHomeComponent },
-      { path: 'manageTripReq', component: ManageTripRequestComponent }
+      { path: 'manageTripReq', component: ManageTripRequestComponent },
+      {path: 'totalrevenu', component: TotalRevenuComponent},
+      { path: 'statickey', component: StatickeyComponent },
+      { path: 'registeredusers', component: RegistedUsersComponent }
     ]
   }
 ];

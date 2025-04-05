@@ -1,0 +1,33 @@
+<div class="users-container">
+    <h2>Users</h2>
+    <div class="users-grid">
+      <div class="user-card" *ngFor="let user of users">
+ 
+        <img src="../../../assets/images/{{user.imagepath}}" width="100px" style="border-radius: 20px;" />        
+       
+        <div class="user-info">
+          <h3>{{ user.fname }} {{ user.lname }}</h3>
+          <p><strong>Email:</strong> {{ user.email }}</p>
+          <p><strong>Phone:</strong> {{ user.phone }}</p>
+          <p><strong>Country:</strong> {{ user.country }}</p>
+          <p><strong>Age:</strong> {{ user.age }}</p>
+        </div>
+      </div>
+    </div>
+ 
+    <h2>Volunteers</h2>
+    <div class="users-grid">
+      <div class="user-card" *ngFor="let volunteer of volunteers">
+        <img src="../../../assets/images/{{volunteer.imagepath}}" width="100px" style="border-radius: 20px;" />
+         
+        <div class="user-info">
+          <h3>{{ volunteer.fname }} {{ volunteer.lname }}</h3>
+          <p><strong>Email:</strong> {{ volunteer.email }}</p>
+          <p><strong>Phone:</strong> {{ volunteer.phone }}</p>
+          <p><strong>Country:</strong> {{ volunteer.country }}</p>
+          <p><strong>Age:</strong> {{ volunteer.age }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+ 

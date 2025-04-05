@@ -1,6 +1,8 @@
+
 import { Component } from '@angular/core';
 import { TripRequestService } from '../Services/trip-request.service';
 import { TripService } from '../Services/trip.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-trip-request-form',
@@ -10,8 +12,6 @@ import { TripService } from '../Services/trip.service';
 export class TripRequestFormComponent {
   showTrips: boolean = false;
   trips: any = [{}];
- // console.log("✅ Login button clicked!");
- //const userId = localStorage.getItem('userId');
   tripRequest = {
     userid: localStorage.getItem('userId'),
     tripid: null as number | null,
@@ -75,6 +75,14 @@ export class TripRequestFormComponent {
       status: 'pending',
       paymentid: null
     };
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Request Submitted!',
+      text: 'Your request has been received! We will review it carefully and notify you by email whether it is approved or rejected. Thanks for your patience!',
+      confirmButtonColor: '#3085d6',
+      confirmButtonText: 'OK'
+    });
  
     if (this.tripRequest.requesttype === 'volunteer' && this.selectedFile) {
       const formData = new FormData();

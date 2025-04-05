@@ -21,7 +21,18 @@ export class HeaderandfooterService {
         }
       );
   }
-
+  homeData: any = [{}]; // يحتوي بيانات العنصر الواحد
+ 
+  getDatabyId(id: number) {
+   
+    this.http.get(`"https://localhost:7187/api/StaticHeaderAndFooter")/getbyId/${id}`)
+      .subscribe((res: any) => {
+        this.homeData  = res;
+        console.log("header and footer ",this.homeData);
+      }, err => {
+        console.log('Error in header and footer :', err.status);
+      });
+  }
 
   deleteHF(id: any) {
     return this.http.delete(`https://localhost:7187/api/StaticHeaderAndFooter/DeleteStaticheaderandfooter/${id}`);

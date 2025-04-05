@@ -20,6 +20,9 @@ import { ManageGalleryComponent } from './manage-gallery/manage-gallery.componen
 import { ManageHomeComponent } from './manage-home/manage-home.component';
 import { ManageTripRequestComponent } from './manage-trip-request/manage-trip-request.component';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
+import { TotalRevenuComponent } from './total-revenu/total-revenu.component';
+import { StatickeyComponent } from './statickey/statickey.component';
+import { RegistedUsersComponent } from './registed-users/registed-users.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
     ManageGalleryComponent,
     ManageHomeComponent,
     ManageTripRequestComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    TotalRevenuComponent,
+    StatickeyComponent,
+    RegistedUsersComponent
   ],
   imports: [
     CommonModule,

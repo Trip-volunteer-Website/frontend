@@ -22,6 +22,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TestimonialFormComponent } from './testimonial-form/testimonial-form.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { TripRequestFormComponent } from './trip-request-form/trip-request-form.component';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { TripRequestFormComponent } from './trip-request-form/trip-request-form.
     TestimonialFormComponent,
     GalleryComponent,
     TripRequestFormComponent,
+    PaymentComponent,
   
   ],
   imports: [
