@@ -97,4 +97,17 @@
         font-size: 16px !important;
     }
   }
+  .testimonial-card {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .testimonial-item {
+    max-width: 500px;
+    margin: auto;
+  }
   

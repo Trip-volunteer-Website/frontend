@@ -1,0 +1,11 @@
+/* تغيير اللون عند مرور الماوس */
+.sidebar-item a:hover {
+    background-color: #f58122; /* اللون المطلوب عند hover */
+    color: white; /* تغيير لون النص ليكون أبيض عند المرور */
+  }
+  
+  /* تخصيص أيقونات وألوان العناوين */
+  .sidebar-item a:hover i {
+    color: white; /* تغيير لون الأيقونات عند hover */
+  }
+  

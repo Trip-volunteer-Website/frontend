@@ -129,72 +129,23 @@
           </div>
 
           <div class="owl-carousel slide-one-item">
-            <div class="row">
-              <div class="col-md-6">
-
-                <div class="testimonial-39191 d-flex">
-                  <div class="mr-4">
-                    <img src="../assets/HomeDesign/images/person_1.jpg" alt="Image" class="img-fluid">
-                  </div>
-                  <div>
-                    <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, accusamus,
-                      facilis! Placeat praesentium alias porro aperiam facilis accusantium veniam?&rdquo;</blockquote>
-                    <p>&mdash; John Doe</p>
-                  </div>
+            <div *ngFor="let t of testimonials" class="testimonial-item p-4">
+              <div class="testimonial-card shadow p-4 rounded bg-white text-center">
+                <div class="d-flex justify-content-center mb-3">
+                  <img 
+                    [src]="getLocalImagePath(t.user?.imagepath)" 
+                    alt="User Image" 
+                    class="img-fluid rounded-circle border border-2" 
+                    width="100" height="100">
                 </div>
-
-              </div>
-
-              <div class="col-md-6">
-
-                <div class="testimonial-39191 d-flex">
-                  <div class="mr-4">
-                    <img src="../assets/HomeDesign/images/person_2.jpg" alt="Image" class="img-fluid">
-                  </div>
-                  <div>
-                    <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, accusamus,
-                      facilis! Placeat praesentium alias porro aperiam facilis accusantium veniam?&rdquo;</blockquote>
-                    <p>&mdash; John Doe</p>
-                  </div>
-                </div>
-
+                <h5 class="fw-bold mb-1">{{ t.user?.fname }} {{ t.user?.lname }}</h5>
+                <blockquote class="blockquote mb-0 text-muted">
+                  “{{ t.content }}”
+                </blockquote>
               </div>
             </div>
-
-            <div class="row">
-              <div class="col-md-6">
-
-                <div class="testimonial-39191 d-flex">
-                  <div class="mr-4">
-                    <img src="../assets/HomeDesign/images/person_1.jpg" alt="Image" class="img-fluid">
-                  </div>
-                  <div>
-                    <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, accusamus,
-                      facilis! Placeat praesentium alias porro aperiam facilis accusantium veniam?&rdquo;</blockquote>
-                    <p>&mdash; John Doe</p>
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="col-md-6">
-
-                <div class="testimonial-39191 d-flex">
-                  <div class="mr-4">
-                    <img src="../assets/HomeDesign/images/person_2.jpg" alt="Image" class="img-fluid">
-                  </div>
-                  <div>
-                    <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, accusamus,
-                      facilis! Placeat praesentium alias porro aperiam facilis accusantium veniam?&rdquo;</blockquote>
-                    <p>&mdash; John Doe</p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
           </div>
-
+          
         </div>
       </div>
 

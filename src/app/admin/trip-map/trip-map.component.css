@@ -1,10 +1,12 @@
 /* trip-map.component.css */
 #map {
     height: 500px;
-    width: 100%;
+    width: 90%;
     margin-bottom: 20px;
   }
-  
+  *{
+    margin-left: 234px;
+  }
   .location-info, .trip-form {
     margin-top: 20px;
   }

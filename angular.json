@@ -41,9 +41,10 @@
               
               "src/assets/HomeDesign/css/style.css",
               "src/assets/AdminDesign/css/styles.min.css",
-              "src/assets/AdminDesign/css/styles.css"
+              "src/assets/AdminDesign/css/styles.css",
 
-
+              "node_modules/owl.carousel/dist/assets/owl.carousel.min.css",
+             "node_modules/owl.carousel/dist/assets/owl.theme.default.min.css"
 
             ],
             "scripts": [
@@ -61,9 +62,10 @@
                 "src/assets/HomeDesign/js/bootstrap-datepicker.min.js",
                 "src/assets/HomeDesign/js/isotope.pkgd.min.js",
                 "src/assets/HomeDesign/js/aos.js",
-                "src/assets/HomeDesign/js/main.js"
+                "src/assets/HomeDesign/js/main.js",
 
-             
+               "node_modules/jquery/dist/jquery.min.js",
+               "node_modules/owl.carousel/dist/owl.carousel.min.js"
               
 
             ]

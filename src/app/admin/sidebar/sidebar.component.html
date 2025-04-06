@@ -1,7 +1,7 @@
 <aside class="left-sidebar bg-white shadow-sm" style="width: 250px; min-height: 100vh;">
   <div>
-   
-    <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+
+    <nav class="sidebar-nav " data-simplebar="">
       <ul id="sidebarnav" class="p-0">
         <li class="nav-small-cap">
           <i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">Home</span>
@@ -16,62 +16,65 @@
           <i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">Manage</span>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" routerLink="/admin/manegabout"><i class="ti ti-article"></i><span class="hide-menu">Manage About</span></a>
+          <a class="sidebar-link" routerLink="/admin/manegabout"><i class="ti ti-article"></i><span
+              class="hide-menu">Manage About</span></a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" routerLink="/admin/manageHome"><i class="ti ti-article"></i><span class="hide-menu">Manage Home</span></a>
+          <a class="sidebar-link" routerLink="/admin/manageHome"><i class="ti ti-article"></i><span
+              class="hide-menu">Manage Home</span></a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" routerLink="/admin/headerandfooter"><i class="ti ti-alert-circle"></i><span class="hide-menu">Header & Footer</span></a>
+          <a class="sidebar-link" routerLink="/admin/headerandfooter"><i class="ti ti-alert-circle"></i><span
+              class="hide-menu">Header & Footer</span></a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" routerLink="/admin/manegpost"><i class="ti ti-cards"></i><span class="hide-menu">Manage Post</span></a>
+          <a class="sidebar-link" routerLink="/admin/manegpost"><i class="ti ti-cards"></i><span
+              class="hide-menu">Manage Post</span></a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" routerLink="/admin/contact"><i class="ti ti-file-description"></i><span class="hide-menu">View Contact</span></a>
+          <a class="sidebar-link" routerLink="/admin/manageGallery"><i class="ti ti-typography"></i><span
+              class="hide-menu">Gallery</span></a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" routerLink="/admin/viewtestimonial"><i class="ti ti-typography"></i><span class="hide-menu">Testimonials</span></a>
-        </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" routerLink="/admin/manageGallery"><i class="ti ti-typography"></i><span class="hide-menu">Gallery</span></a>
+          <a class="sidebar-link" routerLink="/admin/manageTripReq"><i class="ti ti-typography"></i><span
+              class="hide-menu">Manage Trip Request</span></a>
         </li>
 
         <li class="nav-small-cap">
-          <i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">Auth</span>
+          <i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">USERS</span>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="./authentication-login.html"><i class="ti ti-login"></i><span class="hide-menu">Login</span></a>
+          <a class="sidebar-link" routerLink="/admin/contact"><i class="ti ti-file-description"></i><span
+              class="hide-menu">View Contact</span></a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="./authentication-register.html"><i class="ti ti-user-plus"></i><span class="hide-menu">Register</span></a>
+          <a class="sidebar-link" routerLink="/admin/viewtestimonial"><i class="ti ti-typography"></i><span
+              class="hide-menu">Testimonials</span></a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" routerLink="/admin/registeredusers"><i class="ti ti-typography"></i><span
+              class="hide-menu">Users</span></a>
         </li>
 
         <li class="nav-small-cap">
-          <i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">Extra</span>
+          <i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">TRIP</span>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="./icon-tabler.html"><i class="ti ti-mood-happy"></i><span class="hide-menu">Icons</span></a>
+          <a class="sidebar-link" routerLink="/admin/trip"><i class="ti ti-typography"></i><span
+              class="hide-menu">Trip</span></a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="./sample-page.html"><i class="ti ti-aperture"></i><span class="hide-menu">Sample Page</span></a>
+          <a class="sidebar-link" routerLink="/admin/tripmap"><i class="ti ti-typography"></i><span
+              class="hide-menu">Trip Map</span></a>
+        </li>
+    
+        <li class="sidebar-item">
+          <a class="sidebar-link" (click)="logout()"><i class="ti ti-aperture"></i><span class="hide-menu">Log
+              Out</span></a>
         </li>
       </ul>
 
-      <div class="unlimited-access hide-menu bg-light-primary position-relative mb-4 mt-4 rounded p-3">
-        <div class="d-flex">
-          <div class="me-3">
-            <h6 class="fw-semibold fs-4 mb-2 text-dark">Upgrade to Pro</h6>
-            <a href="https://adminmart.com/product/modernize-bootstrap-5-admin-template/" target="_blank" class="btn btn-primary btn-sm fw-semibold">Buy Pro</a>
-          </div>
-          <div>
-            <img src="../../../assets/AdminDesign/images/backgrounds/rocket.png" alt="Upgrade" class="img-fluid" />
-          </div>
-        </div>
-      </div>
+
     </nav>
   </div>
 </aside>
-
-
-
