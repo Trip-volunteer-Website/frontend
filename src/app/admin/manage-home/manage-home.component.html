@@ -1,44 +1,49 @@
-<!-- ✅ Home Data Table -->
-<table class="table table-bordered mt-3">
-  <thead class="thead-dark">
-    <tr>
-      <th>Home ID</th>
-      <th>Title</th>
-      <th>Paragraphs</th>
-      <th>Images</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let home of homeData">
-      <td>{{ home.id }}</td>
-      <td>
-        <strong>{{ home.title1 }}</strong><br>
-        <span>{{ home.title2 }}</span><br>
-        <span>{{ home.title3 }}</span>
-      </td>
-      <td>
-        <p>{{ home.p1 }}</p>
-        <p>{{ home.p2 }}</p>
-        <p>{{ home.p3 }}</p>
-      </td>
-      <td>
-        <div *ngIf="home.img1path">
-          <img [src]="'../../assets/images/' + home.img1path" width="80" alt="Image 1">
-        </div>
-        <div *ngIf="home.img2path">
-          <img [src]="'../../assets/images/'+ home.img2path" width="80" alt="Image 2">
-        </div>
-        <div *ngIf="home.img3path">
-          <img [src]="'../../assets/images/' + home.img3path" width="80" alt="Image 3">
-        </div>
-      </td>
-      <td>
-        <button class="btn btn-warning" (click)="openUpdateDialog(home)">Update</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="container mt-4">
+  <div class="bg-white border shadow-sm rounded-3 p-3">
+    <div class="text-center mb-3">
+      <h3 class="text-warning fw-semibold">Home Information</h3>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-borderless align-middle mb-0">
+        <thead class="small text-uppercase text-secondary bg-light">
+          <tr>
+            <th>ID</th>
+            <th>Titles</th>
+            <th>Paragraphs</th>
+            <th>Images</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let home of homeData" class="border-bottom">
+            <td>{{ home.id }}</td>
+            <td>
+              <strong>{{ home.title1 }}</strong><br />
+              <span class="text-muted">{{ home.title2 }}</span><br />
+              <span class="text-muted">{{ home.title3 }}</span>
+            </td>
+            <td>
+              <p class="mb-1">{{ home.p1 }}</p>
+              <p class="mb-1">{{ home.p2 }}</p>
+              <p class="mb-0">{{ home.p3 }}</p>
+            </td>
+            <td class="d-flex flex-column gap-2">
+              <img *ngIf="home.img1path" [src]="'../../assets/images/' + home.img1path" width="60" height="60" class="rounded border shadow-sm" />
+              <img *ngIf="home.img2path" [src]="'../../assets/images/' + home.img2path" width="60" height="60" class="rounded border shadow-sm" />
+              <img *ngIf="home.img3path" [src]="'../../assets/images/' + home.img3path" width="60" height="60" class="rounded border shadow-sm" />
+            </td>
+            <td class="text-center">
+              <button mat-stroked-button color="primary" (click)="openUpdateDialog(home)">
+                Update
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
  
  <!-- Update Home Data Dialog -->

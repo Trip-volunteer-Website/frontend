@@ -9,7 +9,6 @@ import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http"; // ✅ إضافة HTTP_INTERCEPTORS
 import { ContactComponent } from './contact/contact.component';
-import { ProfileComponent } from './profile/profile.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule, ToastNoAnimationModule } from 'ngx-toastr';
 import { PostCardComponent } from './post-card/post-card.component';
@@ -23,6 +22,9 @@ import { TestimonialFormComponent } from './testimonial-form/testimonial-form.co
 import { GalleryComponent } from './gallery/gallery.component';
 import { TripRequestFormComponent } from './trip-request-form/trip-request-form.component';
 import { PaymentComponent } from './payment/payment.component';
+import { VolunteersComponent } from './volunteers/volunteers.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,6 @@ import { PaymentComponent } from './payment/payment.component';
     HomeComponent,
     AboutusComponent,
     ContactComponent,
-    ProfileComponent,
     PostCardComponent,
     PostsComponent,
     TripListMapComponent,
@@ -39,6 +40,8 @@ import { PaymentComponent } from './payment/payment.component';
     GalleryComponent,
     TripRequestFormComponent,
     PaymentComponent,
+    VolunteersComponent,
+    UserProfileComponent,
   
   ],
   imports: [
@@ -54,7 +57,10 @@ import { PaymentComponent } from './payment/payment.component';
     ToastNoAnimationModule.forRoot(),
     MatCardModule,
     MatGridListModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    BrowserModule,
+    BrowserAnimationsModule, // ✅ فقط مرة وحدة هون
+    CarouselModule,
   ],
   providers: [
     // ✅ إصلاح خطأ Interceptor

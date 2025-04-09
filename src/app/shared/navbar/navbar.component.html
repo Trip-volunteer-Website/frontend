@@ -39,13 +39,22 @@
 
             <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
               <ul class="site-menu main-menu js-clone-nav ml-auto ">
-                <li class="active"><a routerLink="/home" class="nav-link">Home</a></li>
+                <li><a routerLink="/home" class="nav-link">Home</a></li>
                 <li><a routerLink="/about" class="nav-link">About</a></li>
-                <li><a href="trips.html" class="nav-link">Trips</a></li>
+                <li><a routerLink="/Volunteers" class="nav-link">Top Volunteers</a></li>
                 <li><a href="/posts" class="nav-link">Blog</a></li>
                 <li><a routerLink="/gallery" class="nav-link">Gallery</a></li>
                 <li><a routerLink="/contact" class="nav-link">Contact</a></li>
-                <li><a routerLink="/security/login" class="nav-link">Sign in</a></li>
+                <li *ngIf="!isUserLoggedIn()">
+                  <a routerLink="/security/login" class="nav-link">Sign in</a>
+                </li>
+                <li *ngIf="isUserLoggedIn()">
+                  <a routerLink="/userProfile"  class="nav-link"><strong>profile</strong></a>
+                </li>
+                <li *ngIf="isUserLoggedIn()">
+                  <a (click)="logout()" class="nav-link"><strong>Logout</strong></a>
+                </li>
+                
               </ul>
             </nav>
           </div>

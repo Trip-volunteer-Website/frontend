@@ -1,78 +1,83 @@
 <div class="revenue-container">
-    <h2>Revenue Report</h2>
- 
-    <div class="report-controls">
-        <div class="filters">
-            <div class="filter-group">
-              <label for="yearFilter">Filter by Year:</label>
-              <select id="yearFilter" [(ngModel)]="selectedYear" (change)="onYearChange()">
-                <option [value]="null">All Years</option>
-                <option *ngFor="let year of availableYears" [value]="year">{{year}}</option>
-              </select>
-            </div>
-       
-            <div class="filter-group" *ngIf="selectedYear">
-                <label for="monthFilter">Filter by Month:</label>
-                <select id="monthFilter" [(ngModel)]="selectedMonth" (change)="onMonthChange()">
-                  <option [value]="null">All Months</option>
-                  <option *ngFor="let month of availableMonths" [value]="month.value">{{month.name}}</option>
-                </select>
-              </div>
-            </div>
-     
-      <div class="export-buttons">
-        <button (click)="exportToExcel('monthly')">Export Monthly to Excel</button>
-        <button (click)="exportToPDF('monthly')">Export Monthly to PDF</button>
-        <button (click)="exportToExcel('yearly')">Export annual  to Excel</button>
-        <button (click)="exportToPDF('yearly')">Export annual  to PDF</button>
+  <h2>Revenue Report</h2>
+
+  <div class="report-controls">
+    <div class="filters">
+      <div class="filter-group">
+        <label for="yearFilter">Filter by Year:</label>
+        <select id="yearFilter" [(ngModel)]="selectedYear" (change)="onYearChange()">
+          <option [value]="null">All Years</option>
+          <option *ngFor="let year of availableYears" [value]="year">{{year}}</option>
+        </select>
+      </div>
+
+      <div class="filter-group" *ngIf="selectedYear">
+        <label for="monthFilter">Filter by Month:</label>
+        <select id="monthFilter" [(ngModel)]="selectedMonth" (change)="onMonthChange()">
+          <option [value]="null">All Months</option>
+          <option *ngFor="let month of availableMonths" [value]="month.value">{{month.name}}</option>
+        </select>
       </div>
     </div>
- 
-    <div id="monthly-section" class="revenue-section">
-      <h3>Monthly Revenue</h3>
-     
-      <div class="chart-container">
-        <canvas #monthlyChart></canvas>
-      </div>
-     
-      <table id="monthly-table" class="table">
-        <thead>
-          <tr>
-            <th>Year</th>
-            <th>Month</th>
-            <th>Amount</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let revenue of filteredMonthlyRevenue">
-            <td>{{ revenue.year }}</td>
-            <td>{{ getMonthName(revenue.month) }}</td>
-            <td>{{ revenue.amount | currency:'$':'symbol':'1.3-3' }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
- 
-    <div id="yearly-section" class="revenue-section">
-      <h3>annual  Revenue</h3>
-     
-      <div class="chart-container">
-        <canvas #yearlyChart></canvas>
-      </div>
-     
-      <table id="yearly-table" class="table">
-        <thead>
-          <tr>
-            <th>Year</th>
-            <th>Amount</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let revenue of filteredYearlyRevenue">
-            <td>{{ revenue.year }}</td>
-            <td>{{ revenue.amount | currency:'$':'symbol':'1.3-3' }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+
+   
   </div>
+
+  <div id="monthly-section" class="revenue-section">
+      <h3>Monthly Revenue</h3>
+    <div class="export-buttons">
+      <button (click)="exportToExcel('monthly')">Export Monthly to Excel</button>
+      <button (click)="exportToPDF('monthly')">Export Monthly to PDF</button>
+    </div>
+  
+
+    <div class="chart-container">
+      <canvas #monthlyChart></canvas>
+    </div>
+
+    <table id="monthly-table" class="table">
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Month</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let revenue of filteredMonthlyRevenue">
+          <td>{{ revenue.year }}</td>
+          <td>{{ getMonthName(revenue.month) }}</td>
+          <td>{{ revenue.amount | currency:'$':'symbol':'1.3-3' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="yearly-section" class="revenue-section"> 
+    <h3>annual Revenue</h3>
+    <div class="export-buttons">
+      <button (click)="exportToExcel('monthly')">Export Monthly to Excel</button>
+      <button (click)="exportToPDF('monthly')">Export Monthly to PDF</button>
+    </div>
+   
+
+    <div class="chart-container">
+      <canvas #yearlyChart></canvas>
+    </div>
+
+    <table id="yearly-table" class="table">
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let revenue of filteredYearlyRevenue">
+          <td>{{ revenue.year }}</td>
+          <td>{{ revenue.amount | currency:'$':'symbol':'1.3-3' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

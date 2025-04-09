@@ -1,54 +1,60 @@
-<div class="registration-container" *ngIf="showForm">
-  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="registration-form">
-    <h2 class="form-title">Create Your Account</h2>
  
-    <div class="form-row">
-      <div class="form-group">
-        <label for="fname">First Name</label>
-        <input type="text" id="fname" formControlName="fname" placeholder="Enter first name">
-      </div>
- 
-      <div class="form-group">
-        <label for="lname">Last Name</label>
-        <input type="text" id="lname" formControlName="lname" placeholder="Enter last name">
-      </div>
-    </div>
- 
-    <div class="form-group">
-      <label for="email">Email Address</label>
-      <input type="email" id="email" formControlName="email" placeholder="Enter your email">
-    </div>
- 
-    <div class="form-group">
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" formControlName="phone" placeholder="Enter phone number">
-    </div>
- 
-    <div class="form-row">
-      <div class="form-group">
-        <label for="age">Age</label>
-        <input type="number" id="age" formControlName="age" placeholder="Enter your age">
-      </div>
- 
-      <div class="form-group">
-        <label for="country">Country</label>
-        <input type="text" id="country" formControlName="country" placeholder="Enter your country">
-      </div>
-    </div>
- 
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" id="password" formControlName="password" placeholder="Enter your password">
-    </div>
- 
-    <div class="form-group">
-      <label for="imagepath">Profile Picture</label>
-      <input type="file" #file name="img" (change)="uploadImage(file.files)" class="form-control"formControlName="imagepath">
+<div class="bb">
+  <div class="registration-container" *ngIf="showForm">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="registration-form">
+      <h2 class="form-title">Create Your Account</h2>
    
-    </div>
- 
-    <div class="button-group">
-      <button type="submit" class="submit-button">Register</button>
-    </div>
-  </form>
-</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" formControlName="fname" >
+        </div>
+   
+        <div class="form-group">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" formControlName="lname" >
+        </div>
+      </div>
+   
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" formControlName="email" >
+      </div>
+   
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" formControlName="phone">
+      </div>
+   
+      <div class="form-row">
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input type="number" id="age" formControlName="age">
+        </div>
+   
+        <div class="form-group">
+          <label for="country">Country</label>
+          <input type="text" id="country" formControlName="country" >
+        </div>
+      </div>
+   
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="password">
+      </div>
+   
+      <div class="form-group">
+        <label for="imagepath">Profile Picture</label>
+        <input type="file" #file name="img" (change)="uploadImage(file.files)" class="form-control"formControlName="imagepath">
+     
+      </div>
+   
+      <div class="button-group">
+        <button type="submit" class="submit-button">Register</button>
+      </div>
+      <div class="foot-lnk">
+        <p> have account?<a routerLink="/security/login"> Login Now</a></p> 
+       </div>
+    </form>
+  </div>
+  </div>

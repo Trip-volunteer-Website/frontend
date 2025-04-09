@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HeaderandfooterService } from 'src/app/Services/headerandfooter.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { HeaderandfooterService } from 'src/app/Services/headerandfooter.service
   styleUrls: ['./admin-layout.component.css']
 })
 export class AdminLayoutComponent implements OnInit  {
-    constructor(public headerfooter: HeaderandfooterService) {
+    constructor(public headerfooter: HeaderandfooterService,private router: Router) {
         console.log('AdminLayout Loaded!');
       }
     isSidebarVisible = true;
@@ -18,7 +19,11 @@ export class AdminLayoutComponent implements OnInit  {
     ngOnInit() {
       this.loadHeaderData();
     }
-   
+    logout(){
+      localStorage.clear();
+      this.router.navigate(['']);
+    }
+    
    
    
    

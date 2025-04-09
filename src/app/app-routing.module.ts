@@ -6,7 +6,6 @@ import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
 import { ContactComponent } from './contact/contact.component';
 import { AdminModule } from './admin/admin.module';
-import { ProfileComponent } from './profile/profile.component';
 import { PostsComponent } from './posts/posts.component';
 import { TripListMapComponent } from './trip-list-map/trip-list-map.component';
 import { athurizationGuard } from './athurization.guard';
@@ -14,10 +13,13 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { TestimonialFormComponent } from './testimonial-form/testimonial-form.component';
 import { TripRequestFormComponent } from './trip-request-form/trip-request-form.component';
 import { PaymentComponent } from './payment/payment.component';
+import { VolunteersComponent } from './volunteers/volunteers.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
   {path:'home',
-    component:HomeComponent
+    component:HomeComponent,
+    canActivate: [athurizationGuard]
   },
   {path:'',
     component:HomeComponent
@@ -39,10 +41,7 @@ const routes: Routes = [
     {
       path:'admin',
       loadChildren:()=>AdminModule,
-     // canActivate:[athurizationGuard]
-    }, {
-      path:'profile',
-      component:ProfileComponent
+      canActivate: [athurizationGuard]
     }, {
       path:'posts',
       component:PostsComponent
@@ -66,6 +65,20 @@ const routes: Routes = [
     {
       path:'pay',
       component:PaymentComponent
+    },
+    {
+      path:'Volunteers',
+      component:VolunteersComponent
+    },
+    {
+      path:'userProfile',
+      component:UserProfileComponent,
+       canActivate:[athurizationGuard]
+    },
+    {
+      path:'payment/:requestId',
+      component: PaymentComponent
+ 
     }
 ];
 

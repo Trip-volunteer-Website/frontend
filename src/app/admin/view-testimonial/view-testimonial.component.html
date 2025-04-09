@@ -1,22 +1,37 @@
-<table class="table">
-    <tr>
-      <th>testimonialid</th>
-      <th>username</th>
-      <th>content</th>
-      <th>status</th>
-      <th>Action</th>
-    </tr>
-  
-    <tr *ngFor="let test of testimonials">
-      <td>{{test.testimonialid}}</td>
-      <!-- التأكد من أن test.user ليس null أو undefined قبل محاولة الوصول إلى fname -->
-      <td>{{test.user?.fname}}  {{test.user?.lname}}</td>
-      <td>{{test.content}}</td>
-      <td>{{test.status}}</td>
-      <td>
-        <button mat-button color="primary" (click)="changeStatus(test.testimonialid, 'active')">Activate</button>
-        <button mat-button color="warn" (click)="changeStatus(test.testimonialid, 'rejected')">Reject</button>
-      </td>
-    </tr>
-    
-  </table>
+<div class="container mt-4">
+  <div class="bg-white border shadow-sm rounded-3 p-3">
+    <h3 class="text-warning fw-semibold text-center mb-3">Testimonials</h3>
+
+    <div class="table-responsive">
+      <table class="table table-borderless align-middle mb-0">
+        <thead class="small text-uppercase text-secondary bg-light">
+          <tr>
+            <th>ID</th>
+            <th>User</th>
+            <th>Content</th>
+            <th>Status</th>
+            <th class="text-center">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let test of testimonials" class="border-bottom">
+            <td>{{ test.testimonialid }}</td>
+            <td>{{ test.user?.fname }} {{ test.user?.lname }}</td>
+            <td>{{ test.content }}</td>
+            <td>
+              <span class="badge bg-light text-dark px-2 py-1 rounded-pill">{{ test.status }}</span>
+            </td>
+            <td class="text-center">
+              <button mat-stroked-button color="primary" class="me-2" (click)="changeStatus(test.testimonialid, 'active')">
+                Activate
+              </button>
+              <button mat-stroked-button color="warn" (click)="changeStatus(test.testimonialid, 'rejected')">
+                Reject
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

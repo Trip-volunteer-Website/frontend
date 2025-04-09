@@ -1,19 +1,18 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { SharedModule } from '../shared/shared.module';
 import { ContactService } from '../Services/contact.service';
 import { HeaderandfooterService } from '../Services/headerandfooter.service';
 import { TestimonialService } from '../Services/testimonial.service';
 
-declare var $: any; // ✅ حتى نقدر نستخدم jQuery
+declare var $: any; // ✅ لاستخدام jQuery
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent implements OnInit, AfterViewInit {
+export class ContactComponent implements OnInit {
 
   public testimonials: any[] = [];
 
@@ -35,15 +34,30 @@ export class ContactComponent implements OnInit, AfterViewInit {
     // تحميل الهيدر والفوتر
     this.HF.getAllHF();
 
-    setTimeout(() => {
-      console.log('Loaded header/footer data:', this.HF.headerandfooterarr);
-    }, 2000);
-
     // تحميل التستيمونيالز
     this.test.getAllActiveTestimonial().subscribe(
       (res: any) => {
         this.testimonials = res;
-        console.log('Testimonials loaded:', this.testimonials);
+        console.log('✅ Testimonials loaded:', this.testimonials);
+
+        // ✅ تهيئة الكاروسيل بعد التأكد من تحميل البيانات
+        setTimeout(() => {
+          $('.slide-one-item').owlCarousel({
+            items: 1,
+            loop: true,
+            autoplay: true,
+            autoplayTimeout: 4000,
+            smartSpeed: 600,
+            margin: 20,
+            nav: false,
+            dots: true,
+            responsive: {
+              0: { items: 1 },
+              768: { items: 2 },
+              1024: { items: 3 }
+            }
+          });
+        }, 200);
       },
       (err) => {
         console.error('❌ Failed to load testimonials:', err);
@@ -51,27 +65,14 @@ export class ContactComponent implements OnInit, AfterViewInit {
     );
   }
 
-  ngAfterViewInit(): void {
-    // تهيئة الكاروسل بعد عرض الصفحة
-    setTimeout(() => {
-      $('.slide-one-item').owlCarousel({
-        items: 1,
-        loop: true,
-        autoplay: true,
-        autoplayTimeout: 4000,
-        smartSpeed: 600,
-        margin: 20,
-        nav: false
-      });
-    }, 100);
-  }
-
   // إرسال نموذج التواصل
   Create() {
-    this.contactform.createNewContant(this.createForm.value);
     if (this.createForm.valid) {
-      alert('Thank you for contacting us!');
+      this.contactform.createNewContant(this.createForm.value);
+      alert('✅ Thank you for contacting us!');
       this.createForm.reset();
+    } else {
+      alert('❌ Please fill in all required fields correctly.');
     }
   }
 

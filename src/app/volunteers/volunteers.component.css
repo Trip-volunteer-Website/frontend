@@ -1,0 +1,91 @@
+.users-container {
+  text-align: center;
+  padding: 40px 20px 80px;
+  background: linear-gradient(to right, #ece9e6, #ffffff);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: #fbbb4c;
+  margin-bottom: 40px;
+}
+
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.user-card {
+  width: 280px; /* ✅ ثبّت العرض */
+  max-width: 100%;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 15px;
+  height: 460px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: auto; /* ✅ حتى لو كرت واحد يظل في المنتصف */
+}
+
+
+.user-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.user-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 4px solid #fec876;
+  border-radius: 12px 12px 0 0;
+}
+
+.user-info {
+  padding: 15px 0;
+  text-align: left;
+  width: 100%;
+}
+
+.user-info h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.user-info p {
+  color: #666;
+  margin: 5px 0;
+}
+
+.search-box {
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 30px;
+  border: 2px solid #fbbb4c;
+  font-size: 16px;
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #ffd07e;
+  box-shadow: 0 0 10px rgba(255, 126, 179, 0.3);
+}

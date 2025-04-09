@@ -1,4 +1,4 @@
-.about-form {
+/* .about-form {
     max-width: 500px;
     margin: auto;
     padding: 20px;
@@ -95,4 +95,7 @@
   .btn-outline-danger:hover {
     background-color: #dc3545;
     color: white;
+  } */
+  th , h5{
+    color: #914100;
   }

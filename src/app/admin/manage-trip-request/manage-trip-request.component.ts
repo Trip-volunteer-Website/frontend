@@ -19,7 +19,7 @@ export class ManageTripRequestComponent implements OnInit {
 
 
   ngOnInit(): void {
-  this.tripReq.getAllRequests();
+  this.tripReq.getpendingRequests();
 }
 //UpdateForm
 updateForm : FormGroup= new FormGroup

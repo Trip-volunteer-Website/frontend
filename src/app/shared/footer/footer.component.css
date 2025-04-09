@@ -1,0 +1,60 @@
+.footer-heading {
+    font-weight: 600;
+    color: #222;
+  }
+  
+  .footer-link {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .footer-link:hover {
+    color: #007bff;
+  }
+  
+
+  .animate-fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+  }
+  
+  .animate-slide-up {
+    opacity: 0;
+    animation: slideUp 1s ease forwards;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .contact-info i {
+    width: 20px;
+  }
+  .footer {
+    background-image: url('src\assets\images\wave.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #333;
+    padding: 60px 20px 40px;
+    margin-top: auto;
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid #eee;
+  }
+  
+  

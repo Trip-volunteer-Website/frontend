@@ -1,113 +1,32 @@
-.contact-container {
-    max-width: 900px;
-    margin: auto;
-    padding: 40px 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  .title {
-    text-align: center; /* توسيط العنوان */
-    margin-bottom: 20px;
-  }
-  
-  h2 {
-    font-size: 28px;
-    color: #000000;
-    margin-bottom: 50PX;
-  }
-  
-  .content {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-  }
-  
-  .contact-form {
-    flex: 1;
-    max-width: 55%;
-  }
-  
-  .con-info-title {
-    color: #000000c2;
-    font-weight: bold;
-  }
-  
-  .contact-info {
-    flex: 1;
-    max-width: 40%;
-    padding-left: 20px;
-    border-left: 2px solid #f4b567;
-    margin-top: 35px;
-  }
-  
-  .form-group {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 3px;
-  }
-  
-  input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  textarea {
-    height: 150px;
-  }
-  
-  button {
-    background-color: #f4b567;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  button:hover {
-    background-color: #e89e4d;
-  }
-  
-  strong {
-    color: #000000a1;
-  }
-  
-  /* ✅ جعل التصميم متجاوب للشاشات الصغيرة */
-  @media (max-width: 768px) {
-    .content {
-      flex-direction: column; /* تحويل العناصر إلى عمود واحد */
-      align-items: center; /* توسيط العناصر */
-    }
-  
-    .contact-form, .contact-info {
-      max-width: 100%; /* جعل العناصر تأخذ العرض الكامل */
-      padding-left: 0;
-      border-left: none; /* إزالة الخط الفاصل بين القسمين */
-    }
-  
-    .form-group {
-      flex-direction: column; /* جعل المدخلات تحت بعضها */
-    }
-    p{
-        font-size: 16px !important;
-    }
-  }
-  .testimonial-card {
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .testimonial-item {
-    max-width: 500px;
-    margin: auto;
-  }
-  
+.owl-carousel .testimonial-item {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.testimonial-card {
+  width: 100%;
+  max-width: 400px;
+  min-height: 300px;
+  background: #fff;
+  padding: 25px 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 3px solid #f9bb5e;
+}

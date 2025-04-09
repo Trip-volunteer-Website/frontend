@@ -1,4 +1,4 @@
-.table {
+/* .table {
   width: 100%;
   margin-top: 20px;
 }
@@ -36,4 +36,7 @@ button {
 
 .btn-warning:hover {
   background-color: #ff8c00;
+} */
+th , h5{
+  color: #914100;
 }

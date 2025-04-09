@@ -1,10 +1,16 @@
 <div class="users-container">
-    <h2>Users</h2>
+
+  <!-- 🔘 Tabs -->
+  <div class="user-tabs">
+    <button [class.active]="activeTab === 'users'" (click)="activeTab = 'users'">Users</button>
+    <button [class.active]="activeTab === 'volunteers'" (click)="activeTab = 'volunteers'">Volunteers</button>
+  </div>
+
+  <!-- 👤 Users Section -->
+  <div *ngIf="activeTab === 'users'">
     <div class="users-grid">
       <div class="user-card" *ngFor="let user of users">
- 
-        <img src="../../../assets/images/{{user.imagepath}}" width="100px" style="border-radius: 20px;" />        
-       
+        <img class="user-img" [src]="'../../../assets/images/' + user.imagepath" alt="User Image" />
         <div class="user-info">
           <h3>{{ user.fname }} {{ user.lname }}</h3>
           <p><strong>Email:</strong> {{ user.email }}</p>
@@ -14,12 +20,13 @@
         </div>
       </div>
     </div>
- 
-    <h2>Volunteers</h2>
+  </div>
+
+  <!-- 🙋 Volunteers Section -->
+  <div *ngIf="activeTab === 'volunteers'">
     <div class="users-grid">
       <div class="user-card" *ngFor="let volunteer of volunteers">
-        <img src="../../../assets/images/{{volunteer.imagepath}}" width="100px" style="border-radius: 20px;" />
-         
+        <img class="user-img" [src]="'../../../assets/images/' + volunteer.imagepath" alt="Volunteer Image" />
         <div class="user-info">
           <h3>{{ volunteer.fname }} {{ volunteer.lname }}</h3>
           <p><strong>Email:</strong> {{ volunteer.email }}</p>
@@ -30,4 +37,5 @@
       </div>
     </div>
   </div>
- 
+
+</div>

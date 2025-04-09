@@ -23,6 +23,7 @@ import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { TotalRevenuComponent } from './total-revenu/total-revenu.component';
 import { StatickeyComponent } from './statickey/statickey.component';
 import { RegistedUsersComponent } from './registed-users/registed-users.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { RegistedUsersComponent } from './registed-users/registed-users.componen
     AdminLayoutComponent,
     TotalRevenuComponent,
     StatickeyComponent,
-    RegistedUsersComponent
+    RegistedUsersComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

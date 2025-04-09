@@ -1,33 +1,36 @@
+<div class="container mt-4">
+  <div class="bg-white border shadow-sm rounded-3 p-3">
+    <h3 class="text-warning fw-semibold text-center mb-3">Contact Messages</h3>
 
-
-<div class="custom-table-wrapper">
-  <table class="table">
-      <thead>
-        <tr>
-          <th>id</th>
-          <th>name</th>
-          <th>email</th>
-          <th>phonenumber</th>
-          <th>messages</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let contact of viewContact.contact">
-          <td>{{contact.contactid}}</td>
-          <td>{{contact.name}}</td>
-          <td>{{contact.email}}</td>
-          <td>{{contact.phonenumber}}</td>
-          <td>{{contact.content}}</td>
-          <td>
-            <button  mat-button color="warn" (click)="openDeleteDialoge(contact.contactid)">delete</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="table table-borderless align-middle mb-0">
+        <thead class="small text-uppercase text-secondary bg-light">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Message</th>
+            <th class="text-center">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let contact of viewContact.contact" class="border-bottom">
+            <td>{{ contact.name }}</td>
+            <td>{{ contact.email }}</td>
+            <td>{{ contact.phonenumber }}</td>
+            <td>{{ contact.content }}</td>
+            <td class="text-center">
+              <button mat-stroked-button color="warn" (click)="openDeleteDialoge(contact.contactid)">
+                <i class="ti ti-trash me-1"></i> Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-  
-  
+</div>
+
   
   <ng-template #callDeleteDialoge>
     <div class="custom-dialog">
@@ -41,4 +44,3 @@
       </div>
     </div>
   </ng-template>
-  

@@ -1,49 +1,55 @@
-<header class="app-header shadow-sm bg-white px-4 py-3 d-flex justify-content-between align-items-center">
-  <!-- Left: Logo + Notification -->
+<header class="app-header custom-nav-style shadow-sm px-4 py-3 d-flex justify-content-between align-items-center">
+
   <div class="d-flex align-items-center gap-3">
-    <!-- Logo -->
-    <a href="index.html" class="font-weight-bold">
-      <!--src\assets\images  -->
-     
-      <img
-      src="assets/images/{{headerfooter.headerandfooterarr[0].logo}}"
-      alt="Company Logo"
-      width="85px"
-      style="border-radius: 20px;">
-    
+    <a href="/" class="font-weight-bold">
+      <img src="assets/images/{{headerfooter.headerandfooterarr[0].logo}}" alt="Logo" width="85" style="border-radius: 20px;">
     </a>
-
-
   </div>
 
-  <!-- Right: Download + Profile -->
   <div class="d-flex align-items-center gap-3">
-    <a href="#" class="btn btn-primary fw-semibold text-uppercase">Download Free</a>
-
-    <!-- Profile Dropdown -->
+   
     <div class="dropdown">
-      <a class="btn btn-light d-flex align-items-center" href="#" data-bs-toggle="dropdown">
+      <a class="btn btn-light d-flex align-items-center" routerLink="/admin/adminProfile">
         <img src="../../../assets/AdminDesign/images/profile/user-1.jpg" alt="Profile" width="35" height="35" class="rounded-circle">
       </a>
-      <ul class="dropdown-menu dropdown-menu-end shadow-sm">
-        <li><a class="dropdown-item" href="#"><i class="ti ti-user me-2"></i>Profile</a></li>
-        <li><a class="dropdown-item" href="#"><i class="ti ti-mail me-2"></i>Inbox</a></li>
-        <li><a class="dropdown-item" href="#"><i class="ti ti-settings me-2"></i>Settings</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item text-danger" href="#"><i class="ti ti-logout me-2"></i>Logout</a></li>
-      </ul>
+   
     </div>
   </div>
 </header>
 
+<!-- ✅ فقط واحد layout-wrapper يحتوي السايد بار والمين -->
+<div class="layout-wrapper">
+  <div class="sidebar-wrapper">
+    <aside class="custom-sidebar">
+      <nav class="sidebar-nav">
+        <ul class="sidebar-list">
+          <li class="sidebar-title">Home</li>
+          <li><a routerLink="/admin/admindashboard">🏠 Dashboard</a></li>
 
-<!-- Layout: Sidebar + Router Outlet -->
-<div class="d-flex" style="min-height: 100vh;">
-  <!-- Sidebar -->
-  <app-sidebar></app-sidebar>
+          <li class="sidebar-title">Manage</li>
+          <li><a routerLink="/admin/manegabout">📄 Manage About</a></li>
+          <li><a routerLink="/admin/manageHome">🏡 Manage Home</a></li>
+          <li><a routerLink="/admin/headerandfooter">🔧 Header & Footer</a></li>
+          <li><a routerLink="/admin/manegpost">📝 Manage Post</a></li>
+          <li><a routerLink="/admin/manageGallery">🖼️ Gallery</a></li>
+          <li><a routerLink="/admin/manageTripReq">🧭 Manage Trip Request</a></li>
 
-  <!-- Page Content -->
-  <main class="flex-fill p-4" style="background-color: #f9f9f9;">
+          <li class="sidebar-title">Users</li>
+          <li><a routerLink="/admin/contact">📬 View Contact</a></li>
+          <li><a routerLink="/admin/viewtestimonial">💬 Testimonials</a></li>
+          <li><a routerLink="/admin/registeredusers">👥 Users</a></li>
+
+          <li class="sidebar-title">Trip</li>
+          <li><a routerLink="/admin/trip">🗺️ Trip</a></li>
+          <li><a routerLink="/admin/tripmap">📍 Trip Map</a></li>
+
+          <li><a (click)="logout()">🚪 Logout</a></li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  <main class="main-content">
     <router-outlet></router-outlet>
   </main>
 </div>

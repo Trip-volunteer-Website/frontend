@@ -5,8 +5,7 @@
       <div class="row align-items-center justify-content-center text-center">
         <div class="col-md-5" data-aos="fade-up">
           <h1 class="mb-3 text-white">Get In Touch</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta veritatis in tenetur doloremque, maiores
-            doloribus officia iste. Dolores.</p>
+          <p>Our project empowers volunteers to join and participate in meaningful travel experiences </p>
 
         </div>
       </div>
@@ -87,66 +86,65 @@
         <!-- Contact Info -->
         <div class="col-lg-4 d-flex align-items-center">
           <div *ngIf="headerFooterInfo as info"
-          class="contact-box d-flex flex-column justify-content-center align-items-center text-white text-center w-100"
-          style="background-color: #f9bb5e; border-radius: 12px; min-height: 100%; padding: 2rem;">
-     
-       <h5 class="mb-4 text-uppercase fw-bold" style="letter-spacing: 1px; font-size: 1.5rem;">Contact Info</h5>
-     
-       <div class="mb-3" style="font-size: 1.1rem;">
-         <label class="fw-semibold d-block">Address:</label>
-         <div class="fw-normal">{{ info.location }}</div>
-       </div>
-     
-       <div class="mb-3" style="font-size: 1.1rem;">
-         <label class="fw-semibold d-block">Phone:</label>
-         <div class="fw-normal">{{ info.phonenumber }}</div>
-       </div>
-     
-       <div style="font-size: 1.1rem;">
-         <label class="fw-semibold d-block">Email:</label>
-         <div class="fw-normal">{{ info.email }}</div>
-       </div>
-     </div>
-     
+            class="contact-box d-flex flex-column justify-content-center align-items-center text-white text-center w-100"
+            style="background-color: #f9bb5e; border-radius: 12px; min-height: 100%; padding: 2rem;">
 
-      </div>
+            <h5 class="mb-4 text-uppercase fw-bold" style="letter-spacing: 1px; font-size: 1.5rem;">Contact Info</h5>
 
+            <div class="mb-3" style="font-size: 1.1rem;">
+              <label class="fw-semibold d-block">Address:</label>
+              <div class="fw-normal">{{ info.location }}</div>
+            </div>
 
-      <!-- END .site-section -->
+            <div class="mb-3" style="font-size: 1.1rem;">
+              <label class="fw-semibold d-block">Phone:</label>
+              <div class="fw-normal">{{ info.phonenumber }}</div>
+            </div>
 
-      <div class="site-section">
-
-        <div class="container">
-
-          <div class="row justify-content-center text-center">
-            <div class="col-md-10">
-              <div class="heading-39101 mb-5">
-                <span class="backdrop text-center">Testimonials</span>
-                <span class="subtitle-39191">Testimony</span>
-                <h3>Happy Customers</h3>
-              </div>
+            <div style="font-size: 1.1rem;">
+              <label class="fw-semibold d-block">Email:</label>
+              <div class="fw-normal">{{ info.email }}</div>
             </div>
           </div>
 
-          <div class="owl-carousel slide-one-item">
-            <div *ngFor="let t of testimonials" class="testimonial-item p-4">
-              <div class="testimonial-card shadow p-4 rounded bg-white text-center">
-                <div class="d-flex justify-content-center mb-3">
-                  <img 
-                    [src]="getLocalImagePath(t.user?.imagepath)" 
-                    alt="User Image" 
-                    class="img-fluid rounded-circle border border-2" 
-                    width="100" height="100">
+
+        </div>
+
+
+        <!-- END .site-section -->
+
+        <div class="site-section">
+
+          <div class="container">
+
+            <div class="row justify-content-center text-center">
+              <div class="col-md-10">
+                <div class="heading-39101 mb-5">
+                  <span class="backdrop text-center">Testimonials</span>
+                  <span class="subtitle-39191">Testimony</span>
+                  <h3>Happy Customers</h3>
                 </div>
-                <h5 class="fw-bold mb-1">{{ t.user?.fname }} {{ t.user?.lname }}</h5>
-                <blockquote class="blockquote mb-0 text-muted">
-                  “{{ t.content }}”
-                </blockquote>
               </div>
             </div>
+
+            <div class="owl-carousel slide-one-item">
+              <div *ngFor="let t of testimonials" class="testimonial-item p-4">
+                <div class="testimonial-card shadow p-4 rounded bg-white text-center">
+                  <div class="d-flex justify-content-center mb-3">
+                    <img [src]="getLocalImagePath(t.user?.imagepath)" alt="User Image"
+                      class="img-fluid rounded-circle border border-2" width="100" height="100">
+                  </div>
+                  <h5 class="fw-bold mb-1">{{ t.user?.fname }} {{ t.user?.lname }}</h5>
+                  <blockquote class="blockquote mb-0 text-muted">
+                    “{{ t.content }}”
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+
           </div>
-          
         </div>
       </div>
-
-      <app-footer></app-footer>
+    </div>
+  </div>
+    <app-footer></app-footer>

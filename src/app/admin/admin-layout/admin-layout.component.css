@@ -1,11 +1,68 @@
-main {
-    background-color: #f5f5f5;
-    min-height: 100vh;
-  }
-  
-  .left-sidebar {
-    width: 250px;
-    min-height: 100vh;
-    background: #fff;
-  }
-  
+.sidebar-wrapper {
+  width: 250px;
+  background-color: #fff;
+  min-height: 100vh;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.custom-sidebar {
+  height: 100%;
+  padding: 20px 0;
+}
+
+.sidebar-nav {
+  padding: 0 20px;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 600;
+  margin: 20px 0 8px;
+}
+
+.sidebar-list li a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-list li a:hover {
+  background-color: #f58122;
+  color: #fff;
+}
+.layout-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+.app-sidebar {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 30px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  /* ✅ تأكد ما فيه margin-left زي قبل */
+}
+.custom-nav-style {
+ 
+  background: rgb(235, 235, 231);
+  background: linear-gradient(0deg, rgb(255 255 255) 0%, rgb(252 240 217) 51%, rgb(255 232 195) 100%);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+ 
+}

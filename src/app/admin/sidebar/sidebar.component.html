@@ -1,80 +1,28 @@
-<aside class="left-sidebar bg-white shadow-sm" style="width: 250px; min-height: 100vh;">
-  <div>
+<aside class="left-sidebar bg-white shadow-sm">
+  <nav class="sidebar-nav" data-simplebar>
+    <ul id="sidebarnav" class="p-0">
 
-    <nav class="sidebar-nav " data-simplebar="">
-      <ul id="sidebarnav" class="p-0">
-        <li class="nav-small-cap">
-          <i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">Home</span>
-        </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" routerLink="/admin/admindashboard">
-            <i class="ti ti-layout-dashboard"></i><span class="hide-menu">Dashboard</span>
-          </a>
-        </li>
+      <li class="nav-small-cap"><span class="hide-menu">Home</span></li>
+      <li class="sidebar-item"><a class="sidebar-link" routerLink="/admin/admindashboard"><i class="ti ti-layout-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
 
-        <li class="nav-small-cap">
-          <i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">Manage</span>
-        </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" routerLink="/admin/manegabout"><i class="ti ti-article"></i><span
-              class="hide-menu">Manage About</span></a>
-        </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" routerLink="/admin/manageHome"><i class="ti ti-article"></i><span
-              class="hide-menu">Manage Home</span></a>
-        </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" routerLink="/admin/headerandfooter"><i class="ti ti-alert-circle"></i><span
-              class="hide-menu">Header & Footer</span></a>
-        </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" routerLink="/admin/manegpost"><i class="ti ti-cards"></i><span
-              class="hide-menu">Manage Post</span></a>
-        </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" routerLink="/admin/manageGallery"><i class="ti ti-typography"></i><span
-              class="hide-menu">Gallery</span></a>
-        </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" routerLink="/admin/manageTripReq"><i class="ti ti-typography"></i><span
-              class="hide-menu">Manage Trip Request</span></a>
-        </li>
+      <li class="nav-small-cap"><span class="hide-menu">Manage</span></li>
+      <li class="sidebar-item"><a class="sidebar-link" routerLink="/admin/manegabout"><i class="ti ti-article"></i><span class="hide-menu">Manage About</span></a></li>
+      <li class="sidebar-item"><a class="sidebar-link" routerLink="/admin/manageHome"><i class="ti ti-article"></i><span class="hide-menu">Manage Home</span></a></li>
+      <li class="sidebar-item"><a class="sidebar-link" routerLink="/admin/headerandfooter"><i class="ti ti-alert-circle"></i><span class="hide-menu">Header & Footer</span></a></li>
+      <li class="sidebar-item"><a class="sidebar-link" routerLink="/admin/manegpost"><i class="ti ti-cards"></i><span class="hide-menu">Manage Post</span></a></li>
+      <li class="sidebar-item"><a class="sidebar-link" routerLink="/admin/manageGallery"><i class="ti ti-typography"></i><span class="hide-menu">Gallery</span></a></li>
+      <li class="sidebar-item"><a class="sidebar-link" routerLink="/admin/manageTripReq"><i class="ti ti-typography"></i><span class="hide-menu">Manage Trip Request</span></a></li>
 
-        <li class="nav-small-cap">
-          <i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">USERS</span>
-        </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" routerLink="/admin/contact"><i class="ti ti-file-description"></i><span
-              class="hide-menu">View Contact</span></a>
-        </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" routerLink="/admin/viewtestimonial"><i class="ti ti-typography"></i><span
-              class="hide-menu">Testimonials</span></a>
-        </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" routerLink="/admin/registeredusers"><i class="ti ti-typography"></i><span
-              class="hide-menu">Users</span></a>
-        </li>
+      <li class="nav-small-cap"><span class="hide-menu">Users</span></li>
+      <li class="sidebar-item"><a class="sidebar-link" routerLink="/admin/contact"><i class="ti ti-file-description"></i><span class="hide-menu">View Contact</span></a></li>
+      <li class="sidebar-item"><a class="sidebar-link" routerLink="/admin/viewtestimonial"><i class="ti ti-typography"></i><span class="hide-menu">Testimonials</span></a></li>
+      <li class="sidebar-item"><a class="sidebar-link" routerLink="/admin/registeredusers"><i class="ti ti-typography"></i><span class="hide-menu">Users</span></a></li>
 
-        <li class="nav-small-cap">
-          <i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">TRIP</span>
-        </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" routerLink="/admin/trip"><i class="ti ti-typography"></i><span
-              class="hide-menu">Trip</span></a>
-        </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" routerLink="/admin/tripmap"><i class="ti ti-typography"></i><span
-              class="hide-menu">Trip Map</span></a>
-        </li>
-    
-        <li class="sidebar-item">
-          <a class="sidebar-link" (click)="logout()"><i class="ti ti-aperture"></i><span class="hide-menu">Log
-              Out</span></a>
-        </li>
-      </ul>
+      <li class="nav-small-cap"><span class="hide-menu">Trip</span></li>
+      <li class="sidebar-item"><a class="sidebar-link" routerLink="/admin/trip"><i class="ti ti-typography"></i><span class="hide-menu">Trip</span></a></li>
+      <li class="sidebar-item"><a class="sidebar-link" routerLink="/admin/tripmap"><i class="ti ti-typography"></i><span class="hide-menu">Trip Map</span></a></li>
 
-
-    </nav>
-  </div>
+      <li class="sidebar-item"><a class="sidebar-link" (click)="logout()"><i class="ti ti-aperture"></i><span class="hide-menu">Logout</span></a></li>
+    </ul>
+  </nav>
 </aside>

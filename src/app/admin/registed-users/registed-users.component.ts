@@ -10,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class RegistedUsersComponent implements OnInit {
   users: any[] = []; // مصفوفة لتخزين بيانات المستخدمين
   volunteers: any[] = []; // مصفوفة لتخزين بيانات المتطوعين
- 
+  activeTab: 'users' | 'volunteers' = 'users';
+
   constructor(private authService: AuthService) {}
  
   ngOnInit(): void {

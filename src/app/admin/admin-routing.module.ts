@@ -15,6 +15,7 @@ import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { TotalRevenuComponent } from './total-revenu/total-revenu.component';
 import { StatickeyComponent } from './statickey/statickey.component';
 import { RegistedUsersComponent } from './registed-users/registed-users.component';
+import { ProfileComponent } from './profile/profile.component';
 const routes: Routes = [
   {
     path: '',
@@ -33,7 +34,8 @@ const routes: Routes = [
       { path: 'manageTripReq', component: ManageTripRequestComponent },
       {path: 'totalrevenu', component: TotalRevenuComponent},
       { path: 'statickey', component: StatickeyComponent },
-      { path: 'registeredusers', component: RegistedUsersComponent }
+      { path: 'registeredusers', component: RegistedUsersComponent },
+      { path: 'adminProfile', component: ProfileComponent }
     ]
   }
 ];

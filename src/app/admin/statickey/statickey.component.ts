@@ -50,7 +50,7 @@ export class StatickeyComponent implements OnInit {
       }
     );
  
-    this.tripRequestService.getAllRequests(); // Fetches all trip requests (but not subscribed to it)
+    this.tripRequestService.getpendingRequests(); // Fetches all trip requests (but not subscribed to it)
    
     setTimeout(() => {
       this.pendingRequests = this.tripRequestService.getPendingRequestsCount(); // Fetches pending request count after 1 second

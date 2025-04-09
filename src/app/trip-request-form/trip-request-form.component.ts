@@ -107,6 +107,7 @@ export class TripRequestFormComponent {
   }
  
   get activeTrips() {
-  return this.tripService.TripArr?.filter(t =>  t.status=="active") || [];
+    return this.tripService.TripArr?.filter(t => new Date(t.startdate) >= new Date()) || [];
   }
+  
 }

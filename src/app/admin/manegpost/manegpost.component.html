@@ -1,112 +1,93 @@
-
-<!-- <app-sidebar></app-sidebar> -->
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h3 class="text-primary">post Information</h3>
-        <button class="btn btn-success shadow-sm fw-bold d-flex align-items-center px-3" (click)="createNew()">
-            <i class="ti ti-plus me-2"></i> Create New
-        </button>
+      <button class="btn btn-sm btn-warning text-white px-4 rounded-1 d-flex align-items-center" (click)="createNew()">
+        <i class="ti ti-plus me-2 fs-6"></i> Create New
+      </button>
     </div>
-
-    <div class="card shadow-lg">
-        <div class="card-header bg-primary text-white text-center">
-            <h3>post Information</h3>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-striped table-hover text-center">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>ID</th>
-                            <th>image</th>
-                            <th>title</th>
-                            <th>content</th>
-                            <th>createdat</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let post of post.postArr">
-                            <td>{{ post.postid }}</td>
-                            <td> <img src="../../../assets/images/{{post.imagepath}}" width="100px" style="border-radius: 20px;" /></td>   
-                            <td>{{ post.title }}</td>
-                            <td>{{ post.content }}</td>
-                            <td>{{ post.createdat }}</td>
-                        
-                            
-                            <td>
-                                <button class="btn btn-sm btn-primary me-2"(click)="openUpdateDialog(post)" >
-                                    <i class="ti ti-pencil"></i> Update
-                                </button>
-                                <button mat-button class="btn btn-sm btn-danger" (click)="openDialog(post.postid)">
-                                    <i class="ti ti-trash"></i> Delete
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+  
+    <div class="bg-white border shadow-sm rounded-3 p-3">
+      <div class="text-center mb-3">
+        <h3 class="text-warning fw-semibold">All Posts</h3>
+      </div>
+  
+      <div class="table-responsive">
+        <table class="table table-borderless align-middle mb-0">
+          <thead class="small text-uppercase text-secondary bg-light">
+            <tr>
+              <th>ID</th>
+              <th>Image</th>
+              <th>Title</th>
+              <th>Content</th>
+              <th>Created At</th>
+              <th class="text-center">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let post of post.postArr" class="border-bottom">
+              <td>{{ post.postid }}</td>
+              <td>
+                <img src="../../../assets/images/{{ post.imagepath }}" width="60" height="60" class="rounded border shadow-sm" style="object-fit: cover;" />
+              </td>
+              <td>{{ post.title }}</td>
+              <td>{{ post.content }}</td>
+              <td>{{ post.createdat }}</td>
+              <td class="text-center">
+                <button mat-stroked-button color="primary" class="me-2" (click)="openUpdateDialog(post)">
+                  <i class="ti ti-pencil"></i> Update
+                </button>
+                <button mat-stroked-button color="warn" (click)="openDialog(post.postid)">
+                  <i class="ti ti-trash"></i> Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-</div>
-
+  </div>
+  
+<!-- Dialog تأكيد الحذف -->
 <ng-template #callDelDialog>
-    <div mat-dialog-content>Are You Sure To Delete This Item!!</div>
-    <div mat-dialog-actions>
-        <button mat-button mat-dialog-close="yes">OK</button>
-        <button mat-button mat-dialog-close="no">Cancel</button>
+    <h1 mat-dialog-title class="dialog-title">Delete Post</h1>
+    <div mat-dialog-content class="dialog-content">Are you sure you want to delete this post?</div>
+    <div mat-dialog-actions class="dialog-actions">
+        <button mat-button color="primary" [mat-dialog-close]="'yes'">Yes</button>
+        <button mat-button color="warn" [mat-dialog-close]="'no'">No</button>
     </div>
 </ng-template>
 
-
-
-
-
-
+<!-- Dialog لتحديث المنشور -->
 <ng-template #callUpdateDialog>
-
     <form class="pot-form" [formGroup]="updateForm">
-        <h2>Update post Form</h2>
+        <h2>Update Post Form</h2>
         
         <div class="form-group">
             <label for="img">Upload Image:</label>
             <input type="file" #file name="img" (change)="uploadImage(file.files)" class="form-control" formControlName="imagepath">
             <small *ngIf="pData.imagepath" class="text-muted d-block mt-2">
                 <img [src]="'../../../assets/images/' + pData.imagepath" width="100" class="ms-2 rounded">
-              </small>
-          </div>
-
-
-
-
-        <div class="form-group">
-          <label for="title">Title:</label>
-          <input type="text" id="title" name="title" class="form-control" formControlName="title" [(ngModel)]="pData.title">
-        
-        </div>
-        
-      
-        
-        <div class="form-group">
-          <label for="content">Content:</label>
-          <textarea id="content" name="content" class="form-control" formControlName="content"[(ngModel)]="pData.content"></textarea>
-         
+            </small>
         </div>
 
         <div class="form-group">
-            <label for="title">create date:</label>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" class="form-control" formControlName="title" [(ngModel)]="pData.title">
+        </div>
+
+        <div class="form-group">
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" class="form-control" formControlName="content" [(ngModel)]="pData.content"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="createdat">Created Date:</label>
             <input type="date" id="createdat" name="createdat" class="form-control" formControlName="createdat" [(ngModel)]="pData.createdat">
-          
-          </div>
-          
-        
+        </div>
+
         <!-- أزرار الإرسال والإلغاء بجانب بعض -->
         <div class="d-flex gap-2 mt-3">
-          <button class="btn btn-primary" [disabled]="updateForm.invalid" (click)="Update()">Update</button>
-          <button type="button" class="btn btn-outline-danger" >Cancel</button>
+            <button mat-raised-button color="primary" [disabled]="updateForm.invalid" (click)="Update()">Update</button>
+            <button mat-stroked-button color="warn" mat-dialog-close>Cancel</button>
         </div>
     </form>
-  
-  
- 
 </ng-template>

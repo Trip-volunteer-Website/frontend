@@ -1,6 +1,5 @@
-
 <div class="main-wrapper">
-  <mat-card class="post-card">
+  <mat-card class="post-card orange-theme">
     <mat-card-header>
       <mat-card-title-group>
         <mat-card-title>{{ PostObj.title }}</mat-card-title>
@@ -8,12 +7,10 @@
       </mat-card-title-group>
     </mat-card-header>
 
-    <img mat-card-image src="../../assets/images/{{ PostObj.imagepath}}" alt="Post Image" (click)="showProfile()">
+    <img mat-card-image [src]="'../../assets/images/' + PostObj.imagepath" alt="Post Image" (click)="showProfile()">
 
     <mat-card-content>
-      {{ PostObj.content }}
+      <p class="content">{{ PostObj.content }}</p>
     </mat-card-content>
   </mat-card>
 </div>
-
-

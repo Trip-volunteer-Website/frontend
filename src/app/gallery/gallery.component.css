@@ -1,54 +1,28 @@
-/* Container for the gallery */
 .gallery-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 images per row */
-    gap: 10px;
-    padding: 10px;
-  }
- 
-  /* Style for each gallery item (more elongated card-like design) */
-  .gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-    height: 600px;   /* Increased height for even more vertical elongation */
-  }
- 
-  /* Style for the images (portrait layout) */
-  .gallery-img {
-    width: 100%;            /* Ensure the image fills the container's width */
-    height: 100%;           /* Make the height of the image fill the card */
-    object-fit: cover;      /* Ensure the image covers the space without distorting */
-    transition: transform 0.3s ease-in-out;
-  }
- 
-  /* Hover effect: scale image and move */
-  .gallery-item:hover .gallery-img {
-    transform: scale(1.1); /* Enlarge image */
-  }
- 
-  .gallery-item:hover {
-    transform: translateY(-5px); /* Slight movement */
-  }
- 
-  /* Add responsiveness for smaller screens */
-  @media (max-width: 1200px) {
-    .gallery-container {
-      grid-template-columns: repeat(3, 1fr); /* 3 images per row on smaller screens */
-    }
-  }
- 
-  @media (max-width: 800px) {
-    .gallery-container {
-      grid-template-columns: repeat(2, 1fr); /* 2 images per row on even smaller screens */
-    }
-  }
- 
-  @media (max-width: 500px) {
-    .gallery-container {
-      grid-template-columns: 1fr; /* 1 image per row on very small screens */
-    }
-  }
- 
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.02);
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.3s ease;
+  border-radius: 12px;
+}

@@ -1,36 +1,65 @@
-.post-container {
+.main-wrapper {
   display: flex;
-  flex-wrap: wrap; /* Allows cards to wrap to new lines when needed */
-  justify-content: center; /* Centers the cards */
-  gap: 16px; /* Adds spacing between cards */
-  padding: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem;
 }
 
-app-post-card {
-  flex: 1 1 calc(33.333% - 16px); /* Makes each card take one-third of the width */
-  max-width: 300px; /* Sets a max width for consistency */
-}
-
-/* Style for mat-card to ensure consistent height */
 .post-card {
-  height: 400px; /* Set a fixed height for all cards */
+  width: 350px;
+  height: 500px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Ensures content is evenly distributed */
-  border-radius: 12px; /* Soft rounded corners */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for a modern look */
-  overflow: hidden; /* Prevents content overflow */
+  justify-content: space-between;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
 }
 
-/* Ensure all images have the same height and scale properly */
-.post-card img {
-  height: 200px; /* Fixed height for all images */
-  width: 100%; /* Ensures the image fills the card width */
-  object-fit: cover; /* Ensures the image maintains aspect ratio and fills the space */
-  border-radius: 8px 8px 0 0; /* Rounds top corners */
+.post-card:hover {
+  transform: translateY(-5px);
 }
-.main-wrapper {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+
+/* Theme: Green */
+.green-theme {
+  border: 2px solid #227120;
+}
+
+.green-theme mat-card-header {
+  background-color: #227120;
+  color: white;
+}
+
+.green-theme mat-card-content {
+  padding: 1rem;
+  background-color: #f5fff5;
+  color: #333;
+}
+
+/* Theme: Orange */
+.orange-theme {
+  border: 2px solid #f58122;
+}
+
+.orange-theme mat-card-header {
+  background-color: #f58122;
+  color: white;
+}
+
+.orange-theme mat-card-content {
+  padding: 1rem;
+  background-color: #fff8f2;
+  color: #333;
+}
+
+img[mat-card-image] {
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.content {
+  height: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

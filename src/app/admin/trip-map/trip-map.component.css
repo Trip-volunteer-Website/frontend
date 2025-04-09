@@ -4,9 +4,10 @@
     width: 90%;
     margin-bottom: 20px;
   }
-  *{
-    margin-left: 234px;
+  .trip-map-wrapper * {
+    margin-left: 234px; /* إذا ضروري فقط */
   }
+  
   .location-info, .trip-form {
     margin-top: 20px;
   }

@@ -1,0 +1,196 @@
+<app-navbar> </app-navbar>
+ 
+<div class="profile-container">
+    <!-- عرض البيانات -->
+    <div class="profile-header" *ngIf="!showEditForm">
+        <div class="profile-image-container">
+ 
+            <img [src]="'../assets/images/' + user.imagepath" alt="Profile" class="profile-image">
+            <button class="edit-icon" (click)="showEditForm = true">
+                <i class="ti ti-camera"></i>
+            </button>
+        </div>
+        <div class="profile-info">
+         
+            <h2>{{ user.fname }} {{ user.lname }}</h2>
+            <p><strong>Username:</strong> {{ loginInfo.username }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <p><strong>Phone:</strong> {{ user.phone }}</p>
+            <p><strong>Country:</strong> {{ user.country }}</p>
+            <p><strong>Age:</strong> {{ user.age }}</p>
+            <p><strong>Password:</strong> {{ loginInfo.password }}</p>
+            <p>
+                <strong>
+                    <span *ngIf="user.roleid === 2">User</span>
+                    <span *ngIf="user.roleid === 3">Volunteer</span>
+                </strong>
+            </p>
+            <button class="btn btn-primary mt-3" (click)="showEditForm = true">
+                Edit Profile
+            </button>
+        </div>
+    </div>
+ 
+    <!-- نموذج التعديل -->
+    <div class="edit-form" *ngIf="showEditForm">
+        <h2>Edit Profile</h2>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" [(ngModel)]="loginInfo.username" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" [(ngModel)]="loginInfo.password" class="form-control">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" [(ngModel)]="user.fname" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" [(ngModel)]="user.lname" class="form-control">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" [(ngModel)]="user.email" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="text" [(ngModel)]="user.phone" class="form-control">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Country</label>
+                <input type="text" [(ngModel)]="user.country" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Age</label>
+                <input type="number" [(ngModel)]="user.age" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Profile Image</label>
+            <input type="file" (change)="onImageSelected($event)" class="form-control">
+        </div>
+        <div class="form-actions">
+            <button class="btn btn-success" (click)="updateProfile()">Save Changes</button>
+            <button class="btn btn-secondary" (click)="showEditForm = false">Cancel</button>
+        </div>
+    </div>
+</div>
+ 
+<!-- 🔹 Trip Requests to Pay -->
+<div class="section-card">
+<div class="trip-requests-section mt-5">
+    <h3>Your Trip Requests</h3>
+ 
+    <table class="table table-bordered" *ngIf="tripRequests.length > 0">
+        <thead>
+            <tr>
+                <th>Request ID</th>
+                <th>Trip ID</th>
+                <th>Status</th>
+                <th>Type</th>
+                <th>Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let req of tripRequests">
+                <td>{{ req.requestid }}</td>
+                <td>{{ req.tripid }}</td>
+                <td>{{ req.status }}</td>
+                <td>{{ req.requesttype }}</td>
+                <td>{{ req.requestedat | date: 'yyyy-MM-dd' }}</td>
+                <td>
+                    <!-- Show Pay for approved user requests with no payment -->
+                    <button class="btn btn-warning btn-sm"
+                        *ngIf="req.requesttype === 'user' && req.status === 'approved' && !req.paymentid"
+                        (click)="payForTrip(req)">
+                        Pay
+                    </button>
+                    <!-- Show View Trip Details for User -->
+                    <button class="btn btn-info btn-sm"
+                        *ngIf="req.requesttype === 'user'&& req.status === 'approved'&& req.paymentid"
+                        (click)="viewTripDetails(req)">
+                        View Trip Details
+                    </button>
+ 
+                    <!-- Show View Trip Details for volunteer -->
+                    <button class="btn btn-info btn-sm"
+                        *ngIf="req.requesttype === 'volunteer'&& req.status === 'approved'"
+                        (click)="viewTripDetails(req)">
+                        View Trip Details
+                    </button>
+ 
+                    <span class="text-danger fw-bold" *ngIf="req.status === 'rejected'">
+                        Rejected
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+<!-- 🔸 Invoices Section -->
+<div class="section-card">
+<div class="invoices-section mt-5">
+    <h3>Your Invoices</h3>
+ 
+    <table class="table table-bordered" *ngIf="invoices.length > 0">
+        <thead>
+            <tr>
+                <th>Invoice ID</th>
+                <th>Title</th>
+                <th>Amount</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let inv of invoices">
+                <td>{{ inv.invoiceid }}</td>
+                <td>{{ inv.description }}</td>
+                <td>{{inv.amount}}</td>
+                <td>
+                    <a class="btn btn-info btn-small" [href]="'/assets/' + inv.invoicelink" target="_blank" download>
+                        Download Invoice
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+ 
+    <p *ngIf="invoices.length === 0" class="text-muted">No invoices available.</p>
+</div>
+</div>
+<!-- View Trip Details -->
+ 
+<ng-template #tripDetailsDialog let-data>
+    <h2 mat-dialog-title>Trip Details</h2>
+ 
+    <mat-dialog-content>
+        <p><strong>Trip Name:</strong> {{ data?.tripname || 'N/A' }}</p>
+        <p><strong>Trip ID:</strong> {{ data?.tripid }}</p>
+        <p><strong>Destination:</strong> {{ data?.location || 'N/A' }}</p>
+        <p><strong>Starting Date:</strong> {{ data?.startdate | date: 'yyyy-MM-dd' }}</p>
+    </mat-dialog-content>
+ 
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Close</button>
+    </mat-dialog-actions>
+</ng-template>
+ 
+ 
+<!-- 🔸 Testimonials Section -->
+<div class="section-card">
+   <app-testimonial-form></app-testimonial-form>
+</div>
+
+
+<app-footer></app-footer>

@@ -1,144 +1,174 @@
-/* statickey.component.css */
+/* ✅ Revenue Card override style */
+.revenue-card .card-body {
+  display: block;
+  padding: 2rem;
+}
+
+.revenue-card .card-title {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #d77502;
+  margin-bottom: 1.5rem;
+}
+
+
+/* ✅ General dashboard layout styles */
 .dashboard-container {
-    padding: 1.5rem;
-    max-width: 1400px;
-    margin: 0px 27px 0px 246px;
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.dashboard-header {
+  margin-bottom: 2rem;
+  border-left: 4px solid #d79e11;
+  padding-left: 1rem;
+}
+
+.dashboard-header h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-header p {
+  color: #bc7d1f;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.stats-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  border: 1px solid #eee;
+}
+
+.stats-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  display: flex;
+  padding: 1.75rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.card-body:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 60%;
+  width: 60%;
+  background: linear-gradient(135deg, transparent 0%, rgba(245, 247, 250, 0.6) 100%);
+  border-radius: 50% 0 0 0;
+  z-index: -1;
+}
+
+.icon-container {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  color: white;
+  font-size: 24px;
+}
+
+.icon-container.users {
+  background: linear-gradient(45deg, #001ec7, #67fff9);
+}
+
+.icon-container.active {
+  background: linear-gradient(45deg, #039be5, #fa25dc);
+}
+
+.icon-container.completed {
+  background: linear-gradient(to right, #e5a900, #81C784);
+}
+
+.icon-container.success-rate {
+  background: linear-gradient(45deg, #f57c00, #a87676);
+}
+
+.stats-info {
+  flex-grow: 1;
+}
+
+.card-title {
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.75rem;
+}
+
+.counter {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #333;
+  line-height: 1;
+  animation: fadeInUp 0.8s ease-in-out;
+}
+
+.card-text {
+  color: #888;
+  font-size: 0.85rem;
+  margin-bottom: 0;
+}
+
+.fa-spinner {
+  color: #ccc;
+}
+
+.revenue-card {
+  min-height: 400px;
+  padding: 2rem;
+}
+
+/* ✅ Animation for counter */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
   }
- 
-  .dashboard-header {
-    margin-bottom: 2rem;
-    border-left: 4px solid #3f51b5;
-    padding-left: 1rem;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
- 
-  .dashboard-header h2 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 0.5rem;
-  }
- 
-  .dashboard-header p {
-    color: #666;
-    font-size: 1rem;
-    margin: 0;
-  }
- 
-  .stats-card {
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-    transition: all 0.3s ease;
-    border: none;
-    height: 100%;
-    overflow: hidden;
-  }
- 
-  .stats-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-  }
- 
+}
+
+/* ✅ Responsive tweaks */
+@media (max-width: 768px) {
   .card-body {
-    display: flex;
-    padding: 1.75rem;
-    align-items: center;
-    position: relative;
-    z-index: 1;
+    flex-direction: column;
+    text-align: center;
   }
- 
-  .card-body:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 60%;
-    width: 60%;
-    background: linear-gradient(135deg, transparent 0%, rgba(245, 247, 250, 0.6) 100%);
-    border-radius: 50% 0 0 0;
-    z-index: -1;
-  }
- 
+
   .icon-container {
-    width: 60px;
-    height: 60px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 1.5rem;
-    flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-right: 0;
+    margin-bottom: 1rem;
   }
- 
-  .icon-container i {
-    font-size: 24px;
-    /* color: white; */
-  }
- 
-  .icon-container.users {
-    background: linear-gradient(45deg, #3f51b5, #5c6bc0);
-  }
- 
-  .icon-container.active {
-    background: linear-gradient(45deg, #039be5, #29b6f6);
-  }
- 
-  .icon-container.completed {
-    background: linear-gradient(45deg, #43a047, #66bb6a);
-  }
- 
-  .icon-container.success-rate {
-    background: linear-gradient(45deg, #f57c00, #ffb74d);
-  }
- 
+
   .stats-info {
-    flex-grow: 1;
+    text-align: center;
   }
- 
-  .card-title {
-    color: #666;
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 0.75rem;
+
+  .revenue-card .card-body {
+    padding: 1.5rem;
   }
- 
-  .counter {
-    font-size: 2.25rem;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-    color: #333;
-    line-height: 1;
-  }
- 
-  .card-text {
-    color: #888;
-    font-size: 0.85rem;
-    margin-bottom: 0;
-  }
- 
-  .fa-spinner {
-    color: #ccc;
-  }
- 
-  @media (max-width: 768px) {
-    .card-body {
-      flex-direction: column;
-      text-align: center;
-    }
-   
-    .icon-container {
-      margin-right: 0;
-      margin-bottom: 1rem;
-    }
-   
-    .stats-info {
-      text-align: center;
-    }
- 
-      .icon-container[_ngcontent-ng-c1092913001] {
-     
-        background-color: #ffc107 !important;  /* لون أصفر للإشارة إلى الانتظار */
-    }
-  }
+}

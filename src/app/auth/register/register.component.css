@@ -1,24 +1,46 @@
-.registration-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f4f6f9;
-    padding: 20px;
-  }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.bb {
+  background-image: url('../../../assets/HomeDesign/images/bbg.jpeg') !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(8px); /* 👈 مقدار الغبش */
  
-  .registration-form {
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    padding: 40px;
-    width: 100%;
-    max-width: 600px;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+ 
+.registration-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: rgba(244, 246, 249, 0.268); /* Ø´ÙØ§ÙÙŠØ© Ø®ÙÙŠÙØ© Ø¥Ø°Ø§ Ø¨Ø¯Ùƒ */
+}
+ 
+.registration-form {
+  background-color: rgba(255, 255, 255, 0.3); /* شفافية بسيطة */
+  backdrop-filter: blur(10px);               /* 👈 هذا يعمل الغبش */
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  padding: 40px;
+  max-width: 600px;
+  border: 1px #00000040 solid
+}
+ 
  
   .form-title {
     text-align: center;
-    color: #333;
+    color: #434040;
     margin-bottom: 30px;
     font-weight: 600;
   }
@@ -36,16 +58,18 @@
   label {
     display: block;
     margin-bottom: 8px;
-    color: #555;
+    color: #434040;
     font-weight: 500;
   }
  
   input, select {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    border: none;
+    border-bottom: 1px solid #434040;
+    border-radius: 0px;
     transition: all 0.3s ease;
+    background-color: transparent;
   }
  
   input:focus, select:focus {
@@ -67,7 +91,7 @@
   .submit-button {
     width: 100%;
     padding: 15px;
-    background-color: #4a90e2;
+    background-color: #f58122;
     color: white;
     border: none;
     border-radius: 8px;
@@ -77,7 +101,7 @@
   }
  
   .submit-button:hover:not(:disabled) {
-    background-color: #357abd;
+    background-color: #f58122;
   }
  
   .submit-button:disabled {
@@ -96,3 +120,18 @@
   .swal2-html-container b {
     color: #2c3e50;
   }
+  .foot-lnk {
+    text-align: center;
+    margin-top: 10px;
+  }
+ 
+  .foot-lnk a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+ 
+  .foot-lnk a:hover {
+    color: #f78c35;
+  }
+ 

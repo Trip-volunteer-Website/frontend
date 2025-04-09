@@ -1,69 +1,98 @@
 
 <!-- Available Seats -->
-<div class="form-group mb-4">
-    <input type="number"
-           class="form-control d-inline-block w-auto"
-           [(ngModel)]="tripIdToCheck"
-           placeholder="Enter Trip ID to check seats">
-    <button class="btn btn-primary ml-2" (click)="checkAvailableSeats()">Check Seats</button>
+<div class="container mt-4">
+    <div class="d-flex align-items-center gap-3 mb-4">
+      <input
+        type="number"
+        class="form-control rounded-2 w-auto"
+        [(ngModel)]="tripIdToCheck"
+        placeholder="Enter Trip ID to check seats"
+        style="min-width: 220px;"
+      />
+      <button class="btn btn-warning text-white px-4" (click)="checkAvailableSeats()">Check Seats</button>
+    </div>
+  
+    <div *ngIf="availableSeats" class="mt-3 bg-white border shadow-sm rounded-3 p-3">
+      <h3 class="text-warning fw-semibold mb-3">Available Seats</h3>
+      <table class="table table-bordered table-hover text-center mb-0">
+        <thead class="bg-light text-secondary small">
+          <tr>
+            <th>Trip ID</th>
+            <th>User Seats</th>
+            <th>Volunteer Seats</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ availableSeats.tripid }}</td>
+            <td>{{ availableSeats.userSeats }}</td>
+            <td>{{ availableSeats.volunteerSeats }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
   
-  <div *ngIf="availableSeats" class="mt-3">
-    <table class="table table-bordered table-striped">
-      <thead class="thead-dark">
-        <tr>
-          <th>Trip ID</th>
-          <th>User Seats Available</th>
-          <th>Volunteer Seats Available</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{ availableSeats.tripid }}</td>
-          <td>{{ availableSeats.userSeats }}</td>
-          <td>{{ availableSeats.volunteerSeats }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
 
 <!-- Table with Updated Style and PDF Preview for CV -->
-<table class="table">
-    <thead>
-        <tr>
-            <th>Request ID</th>
-            <th>User ID</th>
-            <th>Trip ID</th>
-            <th>Request Type</th>
-            <th>CV</th>
-            <th>Request Date</th>
-            <th>Status</th>
-            <th>Payment ID</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let triprq of tripReq.tripReqData">
-            <td>{{ triprq.requestid }}</td>
-            <td>{{ triprq.userid }}</td>
-            <td>{{ triprq.tripid }}</td>
-            <td>{{ triprq.requesttype }}</td>
-            <td>
-              <a class="btn btn-info btn-small" [href]="'/assets/CVs/' + triprq.cvfilepath" target="_blank" download>
-                View / Download CV
-              </a>
-             </td>
-            <td>{{ triprq.requestedat | date: 'yyyy-MM-dd' }}</td>
-            <td>{{ triprq.status }}</td>
-            <td>{{ triprq.paymentid }}</td>
-            <td>
-                <button class="btn btn-info btn-small" (click)="openUpdateDialog(triprq, 'approved')">Approve</button>
-                <button class="btn btn-info btn-small" (click)="openUpdateDialog(triprq, 'rejected')">Reject</button>
-                <button class="btn btn-danger btn-small" (click)="openDeleteDailog(triprq.requestid)">Delete</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div class="container mt-5">
+    <div class="bg-white border shadow-sm rounded-3 p-3">
+      <h3 class="text-warning fw-semibold mb-3 text-center">Trip Requests</h3>
+  
+      <div class="table-responsive">
+        <table class="table table-borderless align-middle mb-0">
+          <thead class="small text-uppercase text-secondary bg-light">
+            <tr>
+              <th>Request ID</th>
+              <th>User ID</th>
+              <th>Trip ID</th>
+              <th>Type</th>
+              <th>CV</th>
+              <th>Date</th>
+              <th>Status</th>
+              <!-- <th>Payment ID</th> -->
+              <th class="text-center">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let triprq of tripReq.tripReqData" class="border-bottom">
+              <td>{{ triprq.requestid }}</td>
+              <td>{{ triprq.userid }}</td>
+              <td>{{ triprq.tripid }}</td>
+              <td>{{ triprq.requesttype }}</td>
+              <td>
+                <a
+                  class="btn btn-sm btn-outline-primary"
+                  [href]="'/assets/CVs/' + triprq.cvfilepath"
+                  target="_blank"
+                  download
+                >
+                  View / Download
+                </a>
+              </td>
+              <td>{{ triprq.requestedat | date: 'yyyy-MM-dd' }}</td>
+              <td>
+                <span class="badge bg-light text-dark px-2 py-1 rounded-pill">{{ triprq.status }}</span>
+              </td>
+              <!-- <td>{{ triprq.paymentid }}</td> -->
+              <td class="text-center">
+                <button class="btn btn-sm btn-outline-success me-1" (click)="openUpdateDialog(triprq, 'approved')">
+                  Approve
+                </button>
+                <button class="btn btn-sm btn-outline-secondary me-1" (click)="openUpdateDialog(triprq, 'rejected')">
+                  Reject
+                </button>
+                <button class="btn btn-sm btn-outline-danger" (click)="openDeleteDailog(triprq.requestid)">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
  
 <!-- Delete Dialog Template -->
 <ng-template #callDeleteDialog>
