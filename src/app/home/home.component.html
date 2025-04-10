@@ -77,7 +77,11 @@
           <div class="col-md-7 text-center">
             <h2 class="font-weight-bold text-white">{{ homeService.homeData.title3 }}</h2>
             <p class="text-white">{{ homeService.homeData.p3 }}</p>
-            <p class="mb-0">
+        
+            <p class="mb-0" *ngIf="!isUserLoggedIn()">
+              <a [routerLink]="['/security/login']" class="btn btn-warning px-5 py-2">Request a Trip</a>
+            
+            <p class="mb-0" *ngIf="isUserLoggedIn()">
               <a [routerLink]="['/tripRequestForm']" class="btn btn-warning px-5 py-2">Request a Trip</a>
             </p>
           </div>

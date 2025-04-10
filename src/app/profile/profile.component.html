@@ -1,0 +1,77 @@
+<div class="profile-container">
+  <div class="profile-header">
+    <div class="profile-image-container">
+      <img [src]="profile.userData.profileImage || 'assets/profile-img/default.jpg'" alt="Profile Image" class="profile-image">
+      <label class="update-image">
+        <input type="file" (change)="updateProfileImage($event)" hidden>
+      </label>
+    </div>
+ 
+    <div class="profile-info">
+      <h2>{{ profile.userData.firstName }} {{ profile.userData.lastName }}</h2>
+      <p><strong>Country:</strong> {{ profile.userData.country }}</p>
+      <p><strong>Email:</strong> {{ profile.userData.email }}</p>
+      <p><strong>Phone:</strong> {{ profile.userData.phone }}</p>
+      <p><strong>Age:</strong> {{ profile.userData.age }}</p>
+ 
+      <button class="btn btn-primary m-1" (click)="openUpdateDialog(profile)">Edit Profile</button>
+ 
+      <li><a routerLink="/pay" class="nav-link">pay</a></li>
+ 
+ 
+<ng-template #callUpdateDialog>
+  <div class="custom-dialog-container">
+    <form class="trip-form" [formGroup]="updateForm">
+      <h2>Update Trip Form</h2>
+ 
+     
+      <div class="form-group">
+       
+        <input type="hidden" id="userid" name="userid" class="form-control" formControlName="userid" readonly>
+      </div>
+ 
+     
+      <div class="form-group">
+        <label for="email">email:</label>
+        <input type="email" id="email" name="email" class="form-control" formControlName="email">
+      </div>
+ 
+     
+      <div class="form-group">
+        <label for="phone">phone:</label>
+        <input type="number" id="phone" name="phone" class="form-control" formControlName="phone">
+      </div>
+ 
+     
+      <div class="form-group">
+        <label for="fname">End Date:</label>
+        <input type="text" id="fname" name="fname" class="form-control" formControlName="fname">
+      </div>
+ 
+      <div class="form-group">
+        <label for="lname">End Date:</label>
+        <input type="text" id="lname" name="lname" class="form-control" formControlName="lname">
+      </div>
+ 
+      <div class="form-group">
+        <label for="country">End Date:</label>
+        <input type="text" id="country" name="country" class="form-control" formControlName="country">
+      </div>
+ 
+      <div class="form-group">
+        <label for="age">age:</label>
+        <input type="number" id="age" name="age" class="form-control" formControlName="age">
+      </div>
+      <div class="example-container">
+         <input type="file" #file formControlName="imagePath" (change)="UploadImage(file.files)">
+      </div>
+ 
+      <!-- Submit and Cancel buttons -->
+      <div class="d-flex gap-2 mt-3">
+        <button class="btn btn-primary" (click)="updateProfile()">Update</button>
+        <button type="button" class="btn btn-outline-danger" (click)="closeEditForm()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+ 

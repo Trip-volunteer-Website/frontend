@@ -71,6 +71,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     this.homeService.uploadHomeImage(formData, imageName);
   }
+  isUserLoggedIn(): boolean {
+    const userData = localStorage.getItem('user');
+    if (userData) {
+      // const user = JSON.parse(userData);
+      return true;
+    }
+    else return false;
+  }
 
   toggleMap() {
     this.mapVisible = !this.mapVisible;
