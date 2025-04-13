@@ -48,13 +48,14 @@ export class TripRequestService {
   }
  
   updateRequest(body: any) {
-    this.http.put(`${this.apiUrl}`,body).subscribe((resp: any) =>
+    this.http.put(`${this.apiUrl}`,body)
+              .subscribe((resp: any) =>
    {
      alert('Updated Sucessfully');
-   }, err => {
-     alert('Something wont wrong');
-     console.log(err);
-    })
+   },(err) => {
+    console.error('Error object:', err);
+    alert(`Something went wrong. Status: ${err.status}, Message: ${err.message}`  )
+   })
   }
  
   createRequest(data: any) {
@@ -80,7 +81,6 @@ export class TripRequestService {
       console.log(err);
     });
   }
- 
  
  
   getPendingRequestsCount(): number {

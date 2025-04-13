@@ -19,7 +19,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 const routes: Routes = [
   {path:'home',
     component:HomeComponent,
-    canActivate: [athurizationGuard]
+    // canActivate: [athurizationGuard]
   },
   {path:'',
     component:HomeComponent

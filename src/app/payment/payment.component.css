@@ -1,46 +1,75 @@
+body {
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
 .payment-container {
-    width: 100%;
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
-    text-align: center;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  label {
-    margin: 10px 0 5px;
-    font-weight: bold;
-  }
-  
-  input {
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button {
-    margin-top: 15px;
-    padding: 10px;
-    font-size: 18px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:disabled {
-    background-color: #ccc;
-  }
-  
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px 25px;
+  background-color: #ffffff;
+  border-radius: 16px;
+
+  /* ✅ ظل برتقالي ناعم */
+  box-shadow: 0 8px 24px rgba(255, 140, 66, 0.2); 
+
+  font-family: 'Segoe UI', sans-serif;
+}
+
+
+.payment-container h2 {
+  text-align: center;
+  color: #ff8c42; /* برتقالي ناعم */
+  margin-bottom: 20px;
+}
+
+.payment-container label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #333;
+}
+
+.payment-container input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.payment-container input:focus {
+  border-color: #ffb366; /* لون تفاعل ناعم */
+}
+
+.readonly-amount {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.payment-container button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 12px;
+  background-color: #ff8c42;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.payment-container button:disabled {
+  background-color: #ffc99b;
+  cursor: not-allowed;
+}
+
+.payment-container button:hover:not(:disabled) {
+  background-color: #e67e2d;
+}
