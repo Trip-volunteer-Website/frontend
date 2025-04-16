@@ -71,7 +71,7 @@ export class TripListMapComponent implements OnInit {
             <p><strong>max users:</strong> ${trip.maxusers}</p>
             <p><strong>max volunteers age:</strong> ${trip.maxvolunteers}</p>
             <p><strong>status:</strong> ${trip.status}</p>
-            <button class="join-now-btn">Join Now</button>
+            
           </div>
         `);
        

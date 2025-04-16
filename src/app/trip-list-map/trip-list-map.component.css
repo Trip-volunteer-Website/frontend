@@ -91,7 +91,7 @@ img.leaflet-marker-icon.leaflet-zoom-animated.leaflet-interactive {
 }
 
 .input-group button {
-  background-color: #007bff;
+  background-color: #fbba16;
   color: white;
   border: none;
   padding: 8px 16px;
@@ -100,7 +100,7 @@ img.leaflet-marker-icon.leaflet-zoom-animated.leaflet-interactive {
 }
 
 .input-group button:hover {
-  background-color: #0069d9;
+  background-color: #ad6500;
 }
 
 /* Style for the Join Now button in popups */

@@ -135,7 +135,7 @@ export class RegisterComponent {
               confirmButtonText: 'Continue to Login'
             }).then((result) => {
               if (result.isConfirmed) {
-                this.router.navigate(['/login']);
+                this.router.navigate(['/security/login']);
               }
             });
           },
@@ -147,7 +147,7 @@ export class RegisterComponent {
                      Please login manually.`,
               icon: 'info'
             }).then(() => {
-              this.router.navigate(['/login']);
+              this.router.navigate(['/security/login']);
             });
           }
         });

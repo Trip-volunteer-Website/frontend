@@ -48,11 +48,11 @@ export class TripMapComponent implements OnInit {
  
   // ************************
   ngOnInit(): void {
-    this.initMap();
+    this.initMap();// تهيئة الخريطة
     this.tripForm.get('startdate')?.valueChanges.subscribe((startDate) => {
       this.updateStatusBasedOnDate(startDate);
     });
-    this.loadTrips();
+    this.loadTrips();// تحميل الرحلات
   }
  
 private updateStatusBasedOnDate(startDate: string): void {
@@ -70,14 +70,14 @@ private updateStatusBasedOnDate(startDate: string): void {
     statusControl?.setValue('completed');
   }
 }
- 
+ // تهيئة الخريطة ومكانها المبدئي
   initMap(): void {
-    this.map = L.map('map').setView([31.9539, 35.9106], 8);
+    this.map = L.map('map').setView([31.9539, 35.9106], 8);// مركزها على عمان 
  
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap contributors'
     }).addTo(this.map);
- 
+   // عند النقر على الخريطة يتم تنفيذ هذا الحدث
     this.map.on('click', (e: L.LeafletMouseEvent) => {
       this.onMapClick(e);
     });
@@ -109,22 +109,22 @@ private updateStatusBasedOnDate(startDate: string): void {
  
  
  
- 
+  // جلب اسم الموقع من OpenStreetMap باستخدام إحداثيات
   reverseGeocode(lat: number, lng: number): void {
     this.http.get(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=18&addressdetails=1`)
       .subscribe((response: any) => {
         const locationName = response.display_name || 'Unknown location';
- 
+ //هون بضيف خطوط الطول ودوائر العرض 
         this.selectedLocation = { latitude: lat, longitude: lng, name: locationName };
  
-        // Ensure only the location name (string) is passed into the form
+         // تعبئة القيم في الفورم
         this.tripForm.patchValue({
           latitude: lat,
           longitude: lng,
           location: locationName  // Only the name of the location (string)
         });
  
-        this.showForm = true;
+        this.showForm = true; // إظهار الفورم بعد تحديد الموقع
       }, error => {
         console.error('Error in reverse geocoding', error);
         this.selectedLocation = { latitude: lat, longitude: lng, name: 'Location name unavailable' };
@@ -137,12 +137,13 @@ private updateStatusBasedOnDate(startDate: string): void {
       });
   }
  
- 
+ // تحميل الرحلات من السيرفر
   loadTrips(): void {
     this.tripService.getAllTrips().subscribe((trips: any) => {
       this.trips = trips;
     });
   }
+    // إنشاء رحلة جديدة
   create(): void {
     if (this.tripForm.valid) {
       const tripData = this.tripForm.value;
@@ -172,13 +173,12 @@ private updateStatusBasedOnDate(startDate: string): void {
   }
  
  
- 
- 
+ // cancel ********* user *****لو عمل ال 
   resetForm(): void {
-    this.tripForm.reset();
-    this.showForm = false;
+    this.tripForm.reset();            // 🧽 مسح كل البيانات المُدخلة في النموذج
+    this.showForm = false;            // 🫣 إخفاء النموذج من الشاشة
     if (this.marker) {
-      this.map.removeLayer(this.marker);
+      this.map.removeLayer(this.marker);  // 🗑️ إزالة الماركر من الخريطة
     }
   }
 }

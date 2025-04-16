@@ -25,19 +25,35 @@ export class TripComponent implements OnInit {
     private fb: FormBuilder
   ) {}
   
+
   ngOnInit(): void {
     this.trip.getAllTrips().subscribe(
       (data: any[]) => {
-        this.trip.TripArr = data;
-        this.filteredTrips = [...this.trip.TripArr]; // Initialize filtered trips
-        console.log('Trip data:', this.trip.TripArr);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+  
+        this.trip.TripArr = data.map(trip => {
+          const startDate = new Date(trip.startdate);
+          startDate.setHours(0, 0, 0, 0);
+  
+          if (startDate < today && trip.status !== 'completed') {
+            trip.status = 'completed'; // تحديث الحالة محليًا
+  
+            // 🔁 تحديث الحالة فعليًا في الـ backend
+            this.trip.updatetrip(trip); // يرسل الرحلة كاملة للباك اند
+          }
+  
+          return trip;
+        });
+  
+        this.filteredTrips = [...this.trip.TripArr];
       },
       (error) => {
         console.error('Error fetching trip data:', error);
       }
     );
   }
-
+  
 
   filterTripsByDate() {
     if (!this.startDateFilter && !this.endDateFilter) {

@@ -30,7 +30,7 @@ export const athurizationGuard: CanActivateFn = (route, state) => {
  
     const isAdmin = user.RoleId === '1';
  
-    const isUser = user.RoleId === '2';
+    const isUser = user.RoleId === '2'||user.RoleId === '3';
  
     const url = state.url;
  
